@@ -8,7 +8,7 @@
 
 **Tech Stack:** Tauri 2.12.0, Rust 1.98.1 stable, Node 24 LTS, pnpm 12.7.0, React 19.3.0, TypeScript 7.0.2, Vite 8.3.1, Pixi 0.81.0, RoboStack Jazzy.
 
-**Spec:** `docs/superpowers/specs/2026-09-28-ros-desktop-skeleton-design.md`
+**Spec:** `doc/specs/2026-09-28-ros-desktop-skeleton-design.md`
 
 ## Global Constraints
 
@@ -30,7 +30,7 @@
 
 **Files:**
 - Create: `.gitignore`, `.node-version`, `package.json`, `pnpm-workspace.yaml`, `rust-toolchain.toml`, `pixi.toml`
-- Create: `docs/versions.md`, `scripts/check-versions.ps1`, `scripts/README.md`
+- Create: `doc/versions.md`, `scripts/check-versions.ps1`, `scripts/README.md`
 
 **Interfaces:** Produces the root package-manager contract, toolchain pins, and Pixi workspace metadata consumed by later tasks.
 
@@ -69,7 +69,7 @@
 ### Task 4: Documentation and repository acceptance
 
 **Files:**
-- Create: `README.md`, `docs/architecture.md`
+- Create: `README.md`, `doc/architecture.md`
 
 **Interfaces:** Documents the commands and platform prerequisites from Tasks 1–3.
 

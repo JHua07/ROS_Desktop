@@ -27,7 +27,7 @@ Create a small, buildable cross-platform desktop application skeleton in `D:\ROS
 | Pixi | 0.81.0 | Current Pixi release and the version recorded by the official installer. |
 | ROS 2 / RoboStack | Jazzy / `robostack-jazzy` | Jazzy is an LTS release supported through May 2029 and RoboStack publishes Jazzy packages for `win-64` and `linux-64`. |
 
-The exact source URLs and the verification date are recorded in `docs/versions.md`.
+The exact source URLs and the verification date are recorded in `doc/versions.md`.
 
 ## Architecture
 
@@ -51,4 +51,3 @@ The initial acceptance checks are:
 3. `pnpm --dir frontend build` succeeds and emits `frontend/dist`.
 4. `cargo check --manifest-path src-tauri/Cargo.toml` succeeds when the Rust toolchain is installed; if it cannot run in the current machine, the missing prerequisite is reported explicitly.
 5. Git records the complete scaffold and lock/version files.
-

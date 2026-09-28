@@ -8,7 +8,7 @@ The repository contains a runnable frontend shell, a Tauri 2.12 Rust shell with 
 
 ## Toolchain
 
-The selected versions and source links are in [docs/versions.md](docs/versions.md). The repository records the Node baseline in `.node-version`, the Rust toolchain in `rust-toolchain.toml`, and the JavaScript dependency graph in `pnpm-lock.yaml`.
+The selected versions and source links are in [doc/versions.md](doc/versions.md). The repository records the Node baseline in `.node-version`, the Rust toolchain in `rust-toolchain.toml`, and the JavaScript dependency graph in `pnpm-lock.yaml`.
 
 Windows development also needs Microsoft C++ Build Tools and WebView2. Ubuntu development needs the GTK/WebKit development packages listed in the [Tauri prerequisites](https://v2.tauri.app/start/prerequisites/).
 
@@ -38,7 +38,7 @@ When Pixi 0.81.0 is installed, run `pixi install` to create the environment lock
 ```text
 frontend/       React/Vite user interface and typed feature seams
 src-tauri/      Tauri configuration, Rust entry point, and IPC boundary
-docs/           Version baseline, architecture, and design records
+doc/            Version baseline, architecture, plans, and design records
 scripts/        Developer checks
 ros/            Reserved workspace area for ROS packages and launch assets
 pixi.toml       Cross-platform Pixi/RoboStack workspace metadata
