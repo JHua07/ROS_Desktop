@@ -46,7 +46,7 @@ pixi.toml       Cross-platform Pixi/RoboStack workspace metadata
 
 ## Verification boundary
 
-The frontend typecheck and production build are verified in the Windows checkout. The Tauri CLI resolves to 2.12.0 and the native configuration parses successfully. `cargo check` remains pending until Rust 1.98.1 is installed in the current shell; the project records that toolchain in `rust-toolchain.toml`.
+The frontend typecheck and production build are verified in the Windows checkout using the available Node 24.19.0 and pnpm 11.25.0; a frozen-lockfile install also passed with pnpm 12.7.0. The Tauri CLI resolves to 2.12.0 and the native configuration parses successfully. `cargo check` remains pending until Rust 1.98.1 is installed in the current shell; the project records that toolchain in `rust-toolchain.toml`.
 
 ## Next step
 

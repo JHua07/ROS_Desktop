@@ -4,9 +4,9 @@
   "version": "0.1.0",
   "identifier": "com.rosdesktop.app",
   "build": {
-    "beforeDevCommand": "pnpm --dir frontend dev --host 127.0.0.1",
+    "beforeDevCommand": "pnpm --dir frontend dev",
     "beforeBuildCommand": "pnpm --dir frontend build",
-    "devUrl": "http://localhost:5173",
+    "devUrl": "http://127.0.0.1:5173",
     "frontendDist": "../frontend/dist"
   },
   "app": {
