@@ -1,0 +1,22 @@
+# JavaScript dependencies and build output
+node_modules/
+frontend/dist/
+frontend/.vite/
+*.tsbuildinfo
+
+# Rust/Tauri build output
+target/
+src-tauri/target/
+src-tauri/gen/
+*.rs.bk
+
+# Pixi environments and local caches
+.pixi/
+.pixi-env/
+
+# Local tooling and OS files
+.superpowers/
+.DS_Store
+Thumbs.db
+*.log
+
