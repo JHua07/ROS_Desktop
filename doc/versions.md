@@ -5,6 +5,7 @@ Verified on 2026-09-28 for the Windows-first workspace in `D:\ROS_Desktop`.
 | Tool or library | Pin | Verification/source |
 | --- | --- | --- |
 | Tauri | 2.12.0 | [Tauri 2.12 release](https://v2.tauri.app/blog/tauri-2.12/) |
+| tauri-build | 2.7.0 | Pinned in `src-tauri/Cargo.toml`; the minimum required by Tauri 2.12.0 (`^2.7.0`) |
 | Rust | 1.98.1 stable | [Rust latest release](https://blog.rust-lang.org/releases/latest/) |
 | Node.js | 24.21.0 LTS baseline | [Node.js release table](https://nodejs.org/en/about/previous-releases) |
 | pnpm | 12.7.0 | [pnpm 12.7 release](https://pnpm.io/blog/releases/12.7) |

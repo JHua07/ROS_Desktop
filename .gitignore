@@ -16,6 +16,7 @@ src-tauri/gen/
 
 # Local tooling and OS files
 .superpowers/
+.workbuddy/
 .DS_Store
 Thumbs.db
 *.log

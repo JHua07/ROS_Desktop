@@ -34,9 +34,9 @@
 
 **Interfaces:** Produces the root package-manager contract, toolchain pins, and Pixi workspace metadata consumed by later tasks.
 
-- [ ] Create the root manifests and version documentation using the exact values from the spec.
-- [ ] Run a read-only manifest inspection that confirms the package manager, Node baseline, Rust channel, and Pixi target platforms.
-- [ ] Commit as `chore: establish workspace version contract`.
+- [x] Create the root manifests and version documentation using the exact values from the spec.
+- [x] Run a read-only manifest inspection that confirms the package manager, Node baseline, Rust channel, and Pixi target platforms.
+- [x] Commit as `chore: establish workspace version contract`.
 
 ### Task 2: Frontend shell and typed module boundaries
 
@@ -47,10 +47,10 @@
 
 **Interfaces:** Consumes Task 1's pnpm workspace. Produces `frontend/dist` and future TypeScript module seams.
 
-- [ ] Add the minimal React/Vite source and module types.
-- [ ] Run `pnpm install` and `pnpm --dir frontend typecheck`; the typecheck must initially fail before the source exists and pass after implementation.
-- [ ] Run `pnpm --dir frontend build` and confirm `frontend/dist/index.html` exists.
-- [ ] Commit as `feat: add frontend shell`.
+- [x] Add the minimal React/Vite source and module types.
+- [x] Run `pnpm install` and `pnpm --dir frontend typecheck`; the typecheck must initially fail before the source exists and pass after implementation.
+- [x] Run `pnpm --dir frontend build` and confirm `frontend/dist/index.html` exists.
+- [x] Commit as `feat: add frontend shell`.
 
 ### Task 3: Tauri Rust shell and IPC seam
 
@@ -62,9 +62,10 @@
 
 **Interfaces:** Consumes Task 2's `frontend/dist`. Produces the `ping` Tauri command and a Rust module layout for future ROS/process integration.
 
-- [ ] Add the Tauri crate, configuration, capability, `ping` command, and empty module boundaries.
-- [ ] Run `cargo check --manifest-path src-tauri/Cargo.toml`; expect success when Rust is installed, otherwise record the exact missing-tool result.
-- [ ] Commit as `feat: add tauri rust shell`.
+- [x] Add the Tauri crate, configuration, capability, `ping` command, and empty module boundaries.
+- [x] Run `cargo check --manifest-path src-tauri/Cargo.toml`; expect success when Rust is installed, otherwise record the exact missing-tool result.
+  - Verified 2026-09-29 after installing Rust 1.98.1 + MSVC Build Tools. Two fixes were required: `tauri-build` had to move from `=2.6.0` to `=2.7.0` (tauri 2.12.0 requires `^2.7.0`), and indexmap's `std` feature is forced in `Cargo.toml` because its build.rs `has_std` autocfg probe (stdin pipe to rustc) fails in restricted environments (Windows error 231). A minimal `src-tauri/icons/icon.ico` was added because tauri-build requires it for the Windows resource file.
+- [x] Commit as `feat: add tauri rust shell`.
 
 ### Task 4: Documentation and repository acceptance
 
@@ -73,6 +74,6 @@
 
 **Interfaces:** Documents the commands and platform prerequisites from Tasks 1–3.
 
-- [ ] Document Windows-first development, Ubuntu validation, the current verification boundary, and the future ROS module plan.
-- [ ] Run the complete frontend build and repository status checks.
-- [ ] Commit as `docs: document workspace and verification`.
+- [x] Document Windows-first development, Ubuntu validation, the current verification boundary, and the future ROS module plan.
+- [x] Run the complete frontend build and repository status checks.
+- [x] Commit as `docs: document workspace and verification`.
