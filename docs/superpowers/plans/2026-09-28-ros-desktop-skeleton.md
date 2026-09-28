@@ -55,7 +55,8 @@
 ### Task 3: Tauri Rust shell and IPC seam
 
 **Files:**
-- Create: `src-tauri/Cargo.toml`, `src-tauri/Cargo.lock`, `src-tauri/build.rs`, `src-tauri/tauri.conf.json`
+- Create: `src-tauri/Cargo.toml`, `src-tauri/build.rs`, `src-tauri/tauri.conf.json`
+- Generate: `src-tauri/Cargo.lock` when Cargo is available on the development machine
 - Create: `src-tauri/capabilities/default.json`, `src-tauri/src/main.rs`, `src-tauri/src/lib.rs`, `src-tauri/src/modules/mod.rs`
 - Create: `src-tauri/src/modules/{ros,environment,process,platform}.rs`
 
@@ -75,4 +76,3 @@
 - [ ] Document Windows-first development, Ubuntu validation, the current verification boundary, and the future ROS module plan.
 - [ ] Run the complete frontend build and repository status checks.
 - [ ] Commit as `docs: document workspace and verification`.
-
