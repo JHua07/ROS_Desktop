@@ -16,7 +16,7 @@ Verified on 2026-09-28 for the Windows-first workspace in `D:\ROS_Desktop`.
 | ROS 2 | Jazzy Jalisco | [Jazzy LTS announcement](https://discourse.ros.org/t/ros-2-jazzy-jalisco-released/37862) |
 | RoboStack | `robostack-jazzy` | [RoboStack Jazzy packages](https://robostack.github.io/jazzy.html) |
 
-The JavaScript package versions are also pinned in `package.json` files and resolved in `pnpm-lock.yaml`. Pixi will generate `pixi.lock` when Pixi 0.81.0 is installed and `pixi install` is first run; the initial manifest deliberately has no ROS package dependency to solve.
+The JavaScript package versions are also pinned in `package.json` files and resolved in `pnpm-lock.yaml`. The committed `pixi.lock` resolves the first workflow's minimal `ros-jazzy-ros-core` environment; additional ROS packages remain workflow-specific.
 
 ## Platform notes
 

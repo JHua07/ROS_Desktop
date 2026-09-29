@@ -2490,6 +2490,7 @@ name = "ros-desktop"
 version = "0.1.0"
 dependencies = [
  "indexmap 1.9.3",
+ "quick-xml",
  "serde",
  "serde_json",
  "tauri",

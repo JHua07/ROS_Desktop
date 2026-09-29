@@ -4,7 +4,7 @@
 
 **Goal:** Build a minimal cross-platform Tauri/React/Pixi ROS Desktop workspace under `D:\ROS_Desktop`.
 
-**Architecture:** A pnpm workspace contains the Vite frontend and a sibling Tauri Rust crate. The frontend has typed future module boundaries; the Rust crate exposes one `ping` command. Pixi declares only RoboStack Jazzy channels and target platforms so dependency selection remains deliberate.
+**Architecture:** A pnpm workspace contains the Vite frontend and a sibling Tauri Rust crate. The frontend has typed domain boundaries and graph IPC calls; the Rust crate captures the Pixi shell environment once, owns the ros2 daemon lifecycle, and queries graph data over localhost XML-RPC. Pixi contains the minimal `ros-jazzy-ros-core` baseline.
 
 **Tech Stack:** Tauri 2.12.0, Rust 1.98.1 stable, Node 24 LTS, pnpm 12.7.0, React 19.3.0, TypeScript 7.0.2, Vite 8.3.1, Pixi 0.81.0, RoboStack Jazzy.
 
@@ -13,7 +13,7 @@
 ## Global Constraints
 
 - The app must build its frontend without Rust, Pixi, or ROS being installed.
-- Pixi must not add a ROS package until a concrete workflow establishes the package name.
+- The first concrete workflow is ROS graph inspection, so `ros-jazzy-ros-core` is required; additional packages need a separate workflow decision.
 - Windows and Ubuntu are the target desktop platforms.
 - Tauri's frontend distribution is `../frontend/dist` relative to `src-tauri`.
 - Version pins in the spec must be reflected in source manifests or version notes.
@@ -23,7 +23,9 @@
 - A missing ROS/Pixi installation must not prevent the frontend build; covered by the frontend-only build task.
 - A Windows path with spaces must not be embedded in runtime configuration; covered by the path-independent Vite/Tauri configuration.
 - The Tauri dev/build commands must resolve from a sibling `frontend` directory; covered by the Tauri configuration and cargo metadata checks.
-- The Pixi manifest must remain solvable metadata without guessed ROS packages; covered by manifest inspection.
+- The Pixi manifest must contain only the tested `ros-jazzy-ros-core` baseline and remain solvable; covered by manifest inspection.
+- GUI graph queries must use the ros2 daemon XML-RPC endpoint and must not invoke `pixi run`.
+- Rust must capture the Pixi environment once with `pixi shell-hook --json` and reuse it for daemon and future long-running subprocesses.
 - A stale tool version must be visible to a developer; covered by the version report and lock files.
 
 ### Task 1: Repository and version contract
@@ -77,3 +79,19 @@
 - [x] Document Windows-first development, Ubuntu validation, the current verification boundary, and the future ROS module plan.
 - [x] Run the complete frontend build and repository status checks.
 - [x] Commit as `docs: document workspace and verification`.
+
+### Task 5: ROS environment activation and daemon graph bridge
+
+**Files:**
+- Modify: `src-tauri/Cargo.toml`, `src-tauri/src/lib.rs`, `src-tauri/src/modules/mod.rs`
+- Create or modify: `src-tauri/src/modules/environment.rs`, `src-tauri/src/modules/process.rs`, `src-tauri/src/modules/ros.rs`
+- Modify: `frontend/src/modules/ros/index.ts`, `frontend/src/modules/environment/index.ts`
+- Modify: `doc/architecture.md`, `README.md`
+
+**Interfaces:** The Rust startup path resolves Pixi, captures `shell-hook --json`, starts or reuses `ros2 daemon`, and exposes typed graph queries through Tauri IPC. The frontend receives structured availability and graph results without knowing process or XML-RPC details.
+
+- [x] Add test-first environment parsing and Pixi resolution, including missing-tool errors.
+- [x] Add test-first XML-RPC request/response handling for the daemon endpoint and domain-ID port calculation.
+- [x] Implement daemon startup/reuse with the captured environment and localhost proxy bypass; keep startup non-fatal when ROS is unavailable.
+- [x] Expose a minimal graph snapshot command for topics, nodes, services, and counts; reserve subprocesses for future streaming operations.
+- [x] Run focused Rust tests, `cargo check`, frontend typecheck/build, and a Windows Pixi/XML-RPC smoke check when the daemon is available.

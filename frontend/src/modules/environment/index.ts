@@ -1,6 +1,7 @@
 export interface EnvironmentStatus {
-  platform: "windows" | "linux";
-  distro: "jazzy";
-  pixiVersion?: string;
-  rosAvailable: boolean;
+  available: boolean;
+  pixi_path?: string;
+  manifest_path: string;
+  ros_distro?: string;
+  error?: string;
 }

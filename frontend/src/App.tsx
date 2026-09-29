@@ -50,8 +50,8 @@ function App() {
             <span className="section-label">Workspace ready</span>
             <h3>A calm place to inspect and control ROS 2.</h3>
             <p>
-              The shell can check its Tauri backend. Pixi and RoboStack will
-              provide the ROS environment when the first workflow is selected.
+              The shell can check its Tauri backend and query the ROS daemon
+              through the native graph bridge.
             </p>
             <button className="primary-button" type="button" onClick={checkBackend}>
               {backendState === "checking" ? "Checking backend…" : "Check backend"}
