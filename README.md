@@ -4,7 +4,7 @@ Cross-platform ROS 2 desktop GUI foundation built with Tauri, React, TypeScript,
 
 ## Current milestone
 
-The repository contains a runnable frontend shell, a Tauri 2.12 Rust shell with typed environment and graph IPC commands, and module boundaries for ROS, environment, process, and platform work. The Pixi manifest targets `win-64` and `linux-64` through RoboStack Jazzy and includes `ros-jazzy-ros-core` as the baseline for daemon-backed graph inspection.
+The four-workflow MVP connects the daemon-backed graph overview and provides managed topic echo, workspace launch, and bag recording. Rust supervises streaming child processes and emits typed state/output events; browser preview remains usable without native IPC. See [MVP design](doc/specs/2026-09-29-four-workflow-mvp.md) and [execution plan](doc/plans/2026-09-29-four-workflow-mvp.md).
 
 ## Toolchain
 
@@ -31,7 +31,7 @@ To inspect the declared versions and tools visible in the current PowerShell ses
 pnpm check:versions
 ```
 
-With Pixi 0.81.0 installed (`~/.pixi/bin/pixi.exe`), run `pixi install` to materialize the ROS Jazzy environment (about 1.5 GB). The resulting `pixi.lock` is committed. The GUI captures `pixi shell-hook --json` once, starts or reuses the ros2 daemon, and sends graph queries to its localhost XML-RPC endpoint. Add further `ros-jazzy-*` packages only after the corresponding GUI workflow has been selected.
+With Pixi 0.81.0 installed (`~/.pixi/bin/pixi.exe`), run `pixi install` to materialize the ROS Jazzy environment (about 1.5 GB). The resulting `pixi.lock` is committed. The GUI captures `pixi shell-hook --json` once, starts or reuses the ros2 daemon, and sends graph queries to its localhost XML-RPC endpoint. The bag workflow additionally requires `ros-jazzy-ros2bag`; add further packages only for demonstrated needs.
 
 ## Repository layout
 
@@ -46,8 +46,8 @@ pixi.toml       Cross-platform Pixi/RoboStack workspace metadata
 
 ## Verification boundary
 
-The frontend typecheck and production build are verified in the Windows checkout; a frozen-lockfile install also passed with pnpm 12.7.0. The Tauri CLI resolves to 2.12.0 and the native configuration parses successfully. `cargo check` passes with Rust 1.98.1 and MSVC Build Tools 2022 (see `src-tauri/Cargo.lock`). The Pixi/RoboStack Jazzy environment installs with `pixi install`, and the daemon was verified with `ros2 daemon start` and `ros2 daemon status` on Windows on 2026-09-29.
+On Windows (2026-09-29), `pnpm --dir frontend typecheck`, `pnpm --dir frontend build` (including `frontend/dist/index.html`), `cargo fmt --manifest-path src-tauri/Cargo.toml -- --check`, `cargo test --manifest-path src-tauri/Cargo.toml` (18 passed, one live test ignored by default), and `cargo check --manifest-path src-tauri/Cargo.toml` pass. The ignored live daemon test passes when explicitly enabled. A Pixi-environment CLI smoke confirmed topic publication and echo output, a workspace launch ready line, and graceful bag stop with `metadata.yaml` and five recorded messages. This smoke exercises the same ROS executable and Windows stop helper, not the full Tauri IPC/GUI route; that route and Ubuntu runtime remain unverified. A frozen-lockfile install passed earlier with pnpm 12.7.0.
 
-## Next step
+## Workflows
 
-The next step is to connect the frontend overview to `environment_status` and `ros_graph_snapshot`, then add streaming process workflows such as `topic echo`, `launch`, and `bag` behind the existing process boundary.
+Use Overview to refresh Pixi/ROS/daemon status and topic/node/service lists. Echo selects one graph topic. Launch scans workspace-contained `.launch.py`, `.launch.xml`, and `.launch.yaml` targets, passing optional `name:=value` arguments directly. Bag records selected topics to a new, non-existing output path with an existing parent. Each workflow has status, bounded logs, and stop control. A forced stop may leave incomplete bag output, so inspect its metadata.

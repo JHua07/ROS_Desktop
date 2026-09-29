@@ -5,7 +5,8 @@ description = "Cross-platform ROS 2 desktop GUI shell"
 channels = ["https://prefix.dev/robostack-jazzy", "conda-forge"]
 platforms = ["win-64", "linux-64"]
 
-# First concrete workflow: run `ros2` CLI commands (ros2 topic list etc.)
-# from the GUI shell. ros-core is the minimal RoboStack Jazzy baseline.
+# ros-core supports graph, echo, and launch; ros2bag is required for recording.
+# GUI graph queries use daemon XML-RPC, not CLI subprocesses.
 [dependencies]
 ros-jazzy-ros-core = "*"
+ros-jazzy-ros2bag = ">=0.26.11,<0.27"

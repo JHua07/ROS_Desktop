@@ -5,7 +5,7 @@ use quick_xml::{Reader, events::Event};
 use serde::Serialize;
 use std::{
     collections::BTreeMap,
-    env, fmt,
+    fmt,
     io::{self, BufRead, Read, Write},
     net::{TcpStream, ToSocketAddrs},
     time::{Duration, Instant},
@@ -48,9 +48,10 @@ impl Endpoint {
         }
     }
 
-    pub fn from_environment() -> Result<Self, RosError> {
-        let domain_id = env::var("ROS_DOMAIN_ID")
-            .unwrap_or_else(|_| "0".into())
+    pub fn from_environment(environment: &CapturedEnvironment) -> Result<Self, RosError> {
+        let domain_id = environment
+            .variable("ROS_DOMAIN_ID")
+            .unwrap_or("0")
             .parse::<u16>()
             .map_err(|_| RosError::InvalidDomainId)?;
         Ok(Self::for_domain(domain_id))
@@ -494,11 +495,42 @@ fn escape(value: &str) -> String {
 #[cfg(test)]
 mod tests {
     use super::{Endpoint, RpcValue, XmlRpcClient, encode_request, parse_response};
+    use crate::modules::environment::CapturedEnvironment;
 
     #[test]
     fn endpoint_uses_ros_domain_id_offset() {
         assert_eq!(Endpoint::for_domain(0).port, 11511);
         assert_eq!(Endpoint::for_domain(42).port, 11553);
+    }
+
+    #[test]
+    fn endpoint_uses_domain_id_from_captured_pixi_environment() {
+        let environment = CapturedEnvironment::from_shell_hook_json(
+            "pixi".into(),
+            "pixi.toml".into(),
+            r#"{"environment_variables":{"ROS_DOMAIN_ID":"17"}}"#,
+        )
+        .unwrap();
+
+        assert_eq!(
+            Endpoint::from_environment(&environment).unwrap().port,
+            11528
+        );
+    }
+
+    #[test]
+    fn endpoint_defaults_to_domain_zero_when_unset_in_captured_environment() {
+        let environment = CapturedEnvironment::from_shell_hook_json(
+            "pixi".into(),
+            "pixi.toml".into(),
+            r#"{"environment_variables":{"ROS_DISTRO":"jazzy"}}"#,
+        )
+        .unwrap();
+
+        assert_eq!(
+            Endpoint::from_environment(&environment).unwrap().port,
+            11511
+        );
     }
 
     #[test]

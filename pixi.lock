@@ -69,6 +69,8 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/libzlib-1.3.2-h25fd6f3_3.conda
       - conda: https://prefix.dev/conda-forge/linux-64/lttng-ust-2.13.9-hf5eda4c_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/lxml-6.1.3-py312h663fcd5_0.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/lz4-4.4.5-py312hc6a72db_2.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/lz4-c-1.10.0-hee9eb32_2.conda
       - conda: https://prefix.dev/conda-forge/linux-64/ncurses-6.6-hdb14827_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/numpy-2.5.3-py312he827f4e_0.conda
       - conda: https://prefix.dev/conda-forge/linux-64/openssl-3.6.4-h781a0a9_0.conda
@@ -80,6 +82,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/linux-64/readline-8.3-hd6e31c0_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/rhash-1.4.6-hb03c661_2.conda
       - conda: https://prefix.dev/conda-forge/linux-64/spdlog-1.17.0-hb6aa676_2.conda
+      - conda: https://prefix.dev/conda-forge/linux-64/sqlite-3.53.4-h9ffa6c4_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/tinyxml2-11.0.0-hee9eb32_1.conda
       - conda: https://prefix.dev/conda-forge/linux-64/tk-8.6.13-noxft_h1df4ec4_4.conda
       - conda: https://prefix.dev/conda-forge/linux-64/uncrustify-0.83.0-h54a6638_0.conda
@@ -109,6 +112,8 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/mccabe-0.7.0-pyhd8ed1ab_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/packaging-26.3-pyhc364b38_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/pluggy-1.6.0-pyhf9edf01_1.conda
+      - conda: https://prefix.dev/conda-forge/noarch/pybind11-3.1.0-pyh293190f_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/pybind11-global-3.1.0-pyh648e204_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/pycodestyle-2.15.0-pyh5ded981_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/pycparser-3.0-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/pydocstyle-6.3.0-pyhd8ed1ab_1.conda
@@ -129,6 +134,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/tzdata-2026c-h151e31d_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/zipp-4.1.0-pyhcf101f3_0.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros-jazzy-ros-core-0.11.0-hb0f4dca_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros-jazzy-ros2bag-0.26.11-hb0f4dca_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-action-msgs-2.0.4-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-actionlib-msgs-5.3.8-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-ament-cmake-2.5.6-np2py312h2ed9cc7_21.conda
@@ -193,6 +199,7 @@ environments:
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-iceoryx-binding-c-2.0.6-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-iceoryx-hoofs-2.0.6-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-iceoryx-posh-2.0.6-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-keyboard-handler-0.3.2-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-launch-3.4.11-np2py312h2ed9cc7_22.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-launch-ros-0.26.12-np2py312h2ed9cc7_22.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-launch-testing-3.4.11-np2py312h2ed9cc7_21.conda
@@ -200,12 +207,15 @@ environments:
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-launch-testing-ros-0.26.12-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-launch-xml-3.4.11-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-launch-yaml-3.4.11-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-liblz4-vendor-0.26.11-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-libstatistics-collector-1.7.4-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-libyaml-vendor-1.6.4-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-lifecycle-msgs-2.0.4-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-mcap-vendor-0.26.11-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-nav-msgs-5.3.8-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-osrf-pycommon-2.1.7-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-pluginlib-5.4.5-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-pybind11-vendor-3.1.3-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-python-cmake-module-0.11.1-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rcl-9.2.11-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rcl-action-9.2.11-np2py312h2ed9cc7_21.conda
@@ -235,6 +245,7 @@ environments:
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-ros-environment-4.2.1-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-ros-workspace-1.0.3-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-ros2action-0.32.11-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-ros2bag-0.26.11-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-ros2cli-0.32.11-np2py312h2ed9cc7_22.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-ros2cli-common-extensions-0.3.1-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-ros2component-0.32.11-np2py312h2ed9cc7_21.conda
@@ -250,6 +261,15 @@ environments:
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-ros2run-0.32.11-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-ros2service-0.32.11-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-ros2topic-0.32.11-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-compression-0.26.11-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-cpp-0.26.11-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-interfaces-0.26.11-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-py-0.26.11-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-storage-0.26.11-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-storage-default-plugins-0.26.11-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-storage-mcap-0.26.11-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-storage-sqlite3-0.26.11-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-transport-0.26.11-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosgraph-msgs-2.0.4-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosidl-adapter-4.6.9-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosidl-cli-4.6.9-np2py312h2ed9cc7_22.conda
@@ -283,6 +303,7 @@ environments:
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-service-msgs-2.0.4-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-shape-msgs-5.3.8-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-spdlog-vendor-1.6.2-np2py312h918b84f_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-sqlite3-vendor-0.26.11-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-sros2-0.13.6-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-sros2-cmake-0.13.6-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-statistics-msgs-2.0.4-np2py312h2ed9cc7_21.conda
@@ -296,6 +317,8 @@ environments:
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-uncrustify-vendor-3.0.1-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-unique-identifier-msgs-2.5.1-np2py312h2ed9cc7_21.conda
       - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-visualization-msgs-5.3.8-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-yaml-cpp-vendor-9.0.1-np2py312h2ed9cc7_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-zstd-vendor-0.26.11-np2py312h2ed9cc7_21.conda
       win-64:
       - conda: https://prefix.dev/conda-forge/noarch/_python_abi3_support-1.0-hd8ed1ab_3.conda
       - conda: https://prefix.dev/conda-forge/noarch/argcomplete-3.7.2-pyhcf101f3_0.conda
@@ -320,6 +343,8 @@ environments:
       - conda: https://prefix.dev/conda-forge/noarch/mccabe-0.7.0-pyhd8ed1ab_1.conda
       - conda: https://prefix.dev/conda-forge/noarch/packaging-26.3-pyhc364b38_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/pluggy-1.6.0-pyhf9edf01_1.conda
+      - conda: https://prefix.dev/conda-forge/noarch/pybind11-3.1.0-pyh293190f_0.conda
+      - conda: https://prefix.dev/conda-forge/noarch/pybind11-global-3.1.0-pyhc8003f9_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/pycodestyle-2.15.0-pyh5ded981_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/pycparser-3.0-pyhcf101f3_0.conda
       - conda: https://prefix.dev/conda-forge/noarch/pydocstyle-6.3.0-pyhd8ed1ab_1.conda
@@ -374,6 +399,8 @@ environments:
       - conda: https://prefix.dev/conda-forge/win-64/libzlib-1.3.2-hfd05255_3.conda
       - conda: https://prefix.dev/conda-forge/win-64/llvm-openmp-23.1.2-h49e36cd_0.conda
       - conda: https://prefix.dev/conda-forge/win-64/lxml-6.1.3-py312h1476a5e_0.conda
+      - conda: https://prefix.dev/conda-forge/win-64/lz4-4.4.5-py312hc3c93f3_2.conda
+      - conda: https://prefix.dev/conda-forge/win-64/lz4-c-1.10.0-h6a83c73_2.conda
       - conda: https://prefix.dev/conda-forge/win-64/mkl-2026.1.0-hac47afa_235.conda
       - conda: https://prefix.dev/conda-forge/win-64/numpy-2.5.3-py312ha3f287d_0.conda
       - conda: https://prefix.dev/conda-forge/win-64/openssl-3.6.4-hf411b9b_0.conda
@@ -384,6 +411,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/win-64/python-3.12.14-hb12b558_3_cpython.conda
       - conda: https://prefix.dev/conda-forge/win-64/pyyaml-6.0.3-py312h05f76fc_1.conda
       - conda: https://prefix.dev/conda-forge/win-64/spdlog-1.17.0-hd227c35_2.conda
+      - conda: https://prefix.dev/conda-forge/win-64/sqlite-3.53.4-hdb435a2_1.conda
       - conda: https://prefix.dev/conda-forge/win-64/tbb-2023.1.0-h272cf33_2.conda
       - conda: https://prefix.dev/conda-forge/win-64/tinyxml2-11.0.0-h5112557_1.conda
       - conda: https://prefix.dev/conda-forge/win-64/tk-8.6.13-h967ab96_4.conda
@@ -397,6 +425,7 @@ environments:
       - conda: https://prefix.dev/conda-forge/win-64/yaml-cpp-0.8.0-h5112557_1.conda
       - conda: https://prefix.dev/conda-forge/win-64/zstd-1.5.7-h534d264_7.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros-jazzy-ros-core-0.11.0-h9490d1a_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros-jazzy-ros2bag-0.26.11-h9490d1a_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-action-msgs-2.0.4-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-actionlib-msgs-5.3.8-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-ament-cmake-2.5.6-np2py312hf80f32c_21.conda
@@ -461,6 +490,7 @@ environments:
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-iceoryx-binding-c-2.0.6-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-iceoryx-hoofs-2.0.6-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-iceoryx-posh-2.0.6-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-keyboard-handler-0.3.2-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-launch-3.4.11-np2py312hf80f32c_22.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-launch-ros-0.26.12-np2py312hf80f32c_22.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-launch-testing-3.4.11-np2py312hf80f32c_21.conda
@@ -468,12 +498,15 @@ environments:
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-launch-testing-ros-0.26.12-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-launch-xml-3.4.11-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-launch-yaml-3.4.11-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-liblz4-vendor-0.26.11-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-libstatistics-collector-1.7.4-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-libyaml-vendor-1.6.4-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-lifecycle-msgs-2.0.4-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-mcap-vendor-0.26.11-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-nav-msgs-5.3.8-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-osrf-pycommon-2.1.7-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-pluginlib-5.4.5-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-pybind11-vendor-3.1.3-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-python-cmake-module-0.11.1-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rcl-9.2.11-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rcl-action-9.2.11-np2py312hf80f32c_21.conda
@@ -503,6 +536,7 @@ environments:
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-ros-environment-4.2.1-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-ros-workspace-1.0.3-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-ros2action-0.32.11-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-ros2bag-0.26.11-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-ros2cli-0.32.11-np2py312hf80f32c_22.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-ros2cli-common-extensions-0.3.1-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-ros2component-0.32.11-np2py312hf80f32c_21.conda
@@ -518,6 +552,15 @@ environments:
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-ros2run-0.32.11-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-ros2service-0.32.11-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-ros2topic-0.32.11-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-compression-0.26.11-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-cpp-0.26.11-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-interfaces-0.26.11-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-py-0.26.11-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-storage-0.26.11-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-storage-default-plugins-0.26.11-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-storage-mcap-0.26.11-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-storage-sqlite3-0.26.11-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-transport-0.26.11-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosgraph-msgs-2.0.4-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosidl-adapter-4.6.9-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosidl-cli-4.6.9-np2py312hf80f32c_22.conda
@@ -551,6 +594,7 @@ environments:
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-service-msgs-2.0.4-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-shape-msgs-5.3.8-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-spdlog-vendor-1.6.2-np2py312haaf6261_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-sqlite3-vendor-0.26.11-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-sros2-0.13.6-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-sros2-cmake-0.13.6-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-statistics-msgs-2.0.4-np2py312hf80f32c_21.conda
@@ -564,6 +608,8 @@ environments:
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-uncrustify-vendor-3.0.1-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-unique-identifier-msgs-2.5.1-np2py312hf80f32c_21.conda
       - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-visualization-msgs-5.3.8-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-yaml-cpp-vendor-9.0.1-np2py312hf80f32c_21.conda
+      - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-zstd-vendor-0.26.11-np2py312hf80f32c_21.conda
 packages:
 - conda: https://prefix.dev/conda-forge/linux-64/_openmp_mutex-4.5-20_gnu.conda
   build_number: 20
@@ -1321,6 +1367,35 @@ packages:
   run_exports: {}
   size: 1595760
   timestamp: 1789036626350
+- conda: https://prefix.dev/conda-forge/linux-64/lz4-4.4.5-py312hc6a72db_2.conda
+  sha256: 3e840f3334eb0b73056c037d7e885c84dc6f1dd77d7130ac51fd51aa1fb33d88
+  md5: a98e678cb247b751c1148fdc9deb5189
+  depends:
+  - python
+  - lz4-c
+  - libgcc >=15
+  - __glibc >=2.17,<3.0.a0
+  - lz4-c >=1.10.0,<1.11.0a0
+  - python_abi 3.12.* *_cp312
+  license: BSD-3-Clause
+  license_family: BSD
+  run_exports: {}
+  size: 43863
+  timestamp: 1789242260635
+- conda: https://prefix.dev/conda-forge/linux-64/lz4-c-1.10.0-hee9eb32_2.conda
+  sha256: b8c0e930183e6b7f83cd35ace102f2b8c2f0faae41dc05255dc72f247dfc556a
+  md5: e38a3253d72ab07d471483f24947e2a2
+  depends:
+  - libgcc >=15
+  - libstdcxx >=15
+  - __glibc >=2.17,<3.0.a0
+  license: BSD-2-Clause
+  license_family: BSD
+  run_exports:
+    weak:
+    - lz4-c >=1.10.0,<1.11.0a0
+  size: 181812
+  timestamp: 1786717122815
 - conda: https://prefix.dev/conda-forge/linux-64/ncurses-6.6-hdb14827_1.conda
   sha256: 5d46557214ed184381dafe835b7c94a474a1c3b307a08a250b1ea4779b44ffb3
   md5: ee6c0cd80a60961a1f48aa3e0b91f986
@@ -1494,6 +1569,23 @@ packages:
     - spdlog >=1.17.0,<1.18.0a0
   size: 197438
   timestamp: 1785924346496
+- conda: https://prefix.dev/conda-forge/linux-64/sqlite-3.53.4-h9ffa6c4_1.conda
+  sha256: b01812eff4e950a73933cb3dc14647a97ee377c7fab4858495b80a749ebfbf8b
+  md5: d42b24574925bfa3167efb3571c905ad
+  depends:
+  - __glibc >=2.17,<3.0.a0
+  - icu >=78.3,<79.0a0
+  - libgcc >=15
+  - libsqlite 3.53.4 h13e7031_1
+  - libzlib >=1.3.2,<2.0a0
+  - ncurses >=6.6,<7.0a0
+  - readline >=8.3,<9.0a0
+  license: blessing
+  run_exports:
+    weak:
+    - libsqlite >=3.53.4,<4.0a0
+  size: 205686
+  timestamp: 1787051150973
 - conda: https://prefix.dev/conda-forge/linux-64/tinyxml2-11.0.0-hee9eb32_1.conda
   sha256: 856be65b3a1f11cec5a6d183b38da6c6fa5bdfe85d166fc38515a90af9ae4179
   md5: 860bb6160ae0ac9b8b844f7382bd3313
@@ -1839,6 +1931,48 @@ packages:
   run_exports: {}
   size: 25877
   timestamp: 1764896838868
+- conda: https://prefix.dev/conda-forge/noarch/pybind11-3.1.0-pyh293190f_0.conda
+  sha256: 54ea7a186ccf7ef2c98d3cc29c1c68ddffff0d74bc3321ebb22a56e91e1c3aa9
+  md5: 5aa0ad32112cbfc1cf0f2b3c600be4a5
+  depends:
+  - python >=3.9
+  - pybind11-global ==3.1.0 *_0
+  - python
+  constrains:
+  - pybind11-abi ==12
+  license: BSD-3-Clause
+  license_family: BSD
+  run_exports: {}
+  size: 254992
+  timestamp: 1786200320545
+- conda: https://prefix.dev/conda-forge/noarch/pybind11-global-3.1.0-pyh648e204_0.conda
+  sha256: 684d30c86f505916b44f205b8f5a153b1779df462233ce380b39f777d82126aa
+  md5: 534548c7e6102ae9a408957380937b52
+  depends:
+  - python >=3.9
+  - __unix
+  - python
+  constrains:
+  - pybind11-abi ==12
+  license: BSD-3-Clause
+  license_family: BSD
+  run_exports: {}
+  size: 247376
+  timestamp: 1786200320545
+- conda: https://prefix.dev/conda-forge/noarch/pybind11-global-3.1.0-pyhc8003f9_0.conda
+  sha256: c2c9ae8665c7273a68920ac4245e98bc0ed60bf632093076d48d9b519e5a8275
+  md5: 03c5c8e879d0da779cba5e8d18dccad2
+  depends:
+  - python >=3.9
+  - __win
+  - python
+  constrains:
+  - pybind11-abi ==12
+  license: BSD-3-Clause
+  license_family: BSD
+  run_exports: {}
+  size: 246559
+  timestamp: 1786200319978
 - conda: https://prefix.dev/conda-forge/noarch/pycodestyle-2.15.0-pyh5ded981_0.conda
   sha256: a1a7373d58dcff0570da5f8b5834b0fc9474a09dd27602c9621c126dc018342a
   md5: 6ac7726367d7b5b7378630d2e0ef94e6
@@ -2593,6 +2727,36 @@ packages:
   run_exports: {}
   size: 1273740
   timestamp: 1789036778093
+- conda: https://prefix.dev/conda-forge/win-64/lz4-4.4.5-py312hc3c93f3_2.conda
+  sha256: 80c1c65884514cfaf5e99ea5c061df80c3937c5d207ff63f86c0c0e67156b157
+  md5: c6d0c91ffefa16947f35b597ed320a96
+  depends:
+  - python
+  - lz4-c
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - python_abi 3.12.* *_cp312
+  - lz4-c >=1.10.0,<1.11.0a0
+  license: BSD-3-Clause
+  license_family: BSD
+  run_exports: {}
+  size: 45357
+  timestamp: 1789242301348
+- conda: https://prefix.dev/conda-forge/win-64/lz4-c-1.10.0-h6a83c73_2.conda
+  sha256: 6824e36be0f95ae516dc36dddd18f69cbad0e4e07906fcb10a5f26a8dc471903
+  md5: 3e0691cb20fcaf922df78ccea08b771a
+  depends:
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  license: BSD-2-Clause
+  license_family: BSD
+  run_exports:
+    weak:
+    - lz4-c >=1.10.0,<1.11.0a0
+  size: 150673
+  timestamp: 1786717127870
 - conda: https://prefix.dev/conda-forge/win-64/mkl-2026.1.0-hac47afa_235.conda
   sha256: bb8abe071f73765446df62924031e6599577e8ac9003264dc4569e78c0fea16d
   md5: ace316c48c178d7faa403dee51e30c7b
@@ -2757,6 +2921,20 @@ packages:
     - spdlog >=1.17.0,<1.18.0a0
   size: 174998
   timestamp: 1785924400857
+- conda: https://prefix.dev/conda-forge/win-64/sqlite-3.53.4-hdb435a2_1.conda
+  sha256: 7616fec2d6ded67e111a47d4842738d0b3730c0acf3eaebe928cf6d3e15a6822
+  md5: df9d7c5d34602e0f2655a524d31fce87
+  depends:
+  - libsqlite 3.53.4 hf5d6505_1
+  - ucrt >=10.0.20348.0
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  license: blessing
+  run_exports:
+    weak:
+    - libsqlite >=3.53.4,<4.0a0
+  size: 426888
+  timestamp: 1787051146089
 - conda: https://prefix.dev/conda-forge/win-64/tbb-2023.1.0-h272cf33_2.conda
   sha256: 65f5a52eb5250ca0d627e6958e703583dca008988695284fc2181b3a0a790efd
   md5: 83371bd3f796b3c2d3f0436692d3ea73
@@ -2921,6 +3099,14 @@ packages:
   run_exports: {}
   size: 2022
   timestamp: 1788268948810
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros-jazzy-ros2bag-0.26.11-hb0f4dca_21.conda
+  sha256: 35441213617e9a699ca8b2b1b803b006a11172b251b9198d84e28dabf0bf7fd8
+  md5: 7690228715495a2f0dd5d45492edadc7
+  depends:
+  - ros2-ros2bag ==0.26.11
+  run_exports: {}
+  size: 2017
+  timestamp: 1788271350395
 - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-action-msgs-2.0.4-np2py312h2ed9cc7_21.conda
   sha256: 75c91d670430db142488c4dbe62dc83108f934d70c0c1b617a277d3129e50999
   md5: df4d6a8bfc17c1c02bf6089769bb1e20
@@ -4160,6 +4346,23 @@ packages:
   run_exports: {}
   size: 575620
   timestamp: 1788258148169
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-keyboard-handler-0.3.2-np2py312h2ed9cc7_21.conda
+  sha256: ae98d2292caa81d02900f28e0f64dc44cb2d549a3d5d7505e03b90b3cf86f0d2
+  md5: ebd1107e7d559643a5c630c3d951fc8e
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
+  - libstdcxx >=14
+  - numpy >=1.25,<3
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  license: Apache-2.0
+  run_exports: {}
+  size: 56273
+  timestamp: 1788259641066
 - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-launch-3.4.11-np2py312h2ed9cc7_22.conda
   sha256: 5dfe22c4b97af1d39d3e97ceddca2546e14070ca5f348988f48a8710463628f7
   md5: 4bbc40c12c4c48fdfb8276c43f3c6ac0
@@ -4307,6 +4510,24 @@ packages:
   run_exports: {}
   size: 26601
   timestamp: 1788259139134
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-liblz4-vendor-0.26.11-np2py312h2ed9cc7_21.conda
+  sha256: a776e8dbbc3f9df8c93466b42f40ad8fdc6dd8f78ad2c93d425485d2082be74c
+  md5: eba193c64d90e8ae51a9d4c3cb460b79
+  depends:
+  - lz4
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - libgcc >=14
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - numpy >=1.25,<3
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  license: Apache-2.0 OR BSD-3-Clause OR GPL-2.0-only
+  run_exports: {}
+  size: 24404
+  timestamp: 1788258626253
 - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-libstatistics-collector-1.7.4-np2py312h2ed9cc7_21.conda
   sha256: 0e2d1fcc66681dd8b64e2291b1405476c0ce154a2dc798bd1c182573c0ce1e95
   md5: cd67908e2ae5480cfe249b048ad9ce47
@@ -4369,6 +4590,25 @@ packages:
   run_exports: {}
   size: 275596
   timestamp: 1788261083867
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-mcap-vendor-0.26.11-np2py312h2ed9cc7_21.conda
+  sha256: 80c354350d828c09a92d024dff42206022508551dc319931a39772d3c9ef7838
+  md5: 55303167755a8421f68cb7aba7fbc4a7
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-liblz4-vendor
+  - ros2-ros-workspace
+  - ros2-zstd-vendor
+  - libgcc >=14
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.25,<3
+  license: Apache-2.0
+  run_exports: {}
+  size: 172702
+  timestamp: 1788259150595
 - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-nav-msgs-5.3.8-np2py312h2ed9cc7_21.conda
   sha256: 13191d839133714ede90feff4dfc229b2376da4cc3cab213b65e418c4d5f7bc7
   md5: 67bcea55f95a274c5cd0278e9107507d
@@ -4430,6 +4670,24 @@ packages:
   run_exports: {}
   size: 138996
   timestamp: 1788260369129
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-pybind11-vendor-3.1.3-np2py312h2ed9cc7_21.conda
+  sha256: e662ca0b977e3bf2107127115e11bcaebf1d97b7b9a975adb6b1a60882a68c4a
+  md5: f9be18d4db221876bf1208eb96a956e9
+  depends:
+  - pybind11
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - libgcc >=14
+  - numpy >=1.25,<3
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  license: Apache-2.0 OR BSD-3-Clause
+  run_exports: {}
+  size: 23427
+  timestamp: 1788258594371
 - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-python-cmake-module-0.11.1-np2py312h2ed9cc7_21.conda
   sha256: f954e9d7b0c9ffbb06ccdcfa0881e9e31465362f2e079862b4946c277e37e362
   md5: 1ca8bebac04e3a15d2dba2f1652cbf3b
@@ -5137,6 +5395,29 @@ packages:
   run_exports: {}
   size: 47741
   timestamp: 1788265787097
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-ros2bag-0.26.11-np2py312h2ed9cc7_21.conda
+  sha256: ce4bf6393af8d9f551b5b32f600dee19cc780b60e5d978bec93fa39d29942596
+  md5: 1f2eab09250129181404eeb0eba0c9f0
+  depends:
+  - python
+  - pyyaml
+  - ros2-ament-index-python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-rclpy
+  - ros2-ros-workspace
+  - ros2-ros2cli
+  - ros2-rosbag2-py
+  - ros2-rosbag2-storage-default-plugins
+  - libgcc >=14
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - numpy >=1.25,<3
+  license: Apache-2.0
+  run_exports: {}
+  size: 71170
+  timestamp: 1788270945749
 - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-ros2cli-0.32.11-np2py312h2ed9cc7_22.conda
   sha256: 951d2fd94c41fd3c72067166b372cecc01aedbb03220d8bf4c05a5d2674a05b5
   md5: 533fe0cb3ce6d391bc554d19fa330a43
@@ -5479,6 +5760,214 @@ packages:
   run_exports: {}
   size: 74283
   timestamp: 1788265755519
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-compression-0.26.11-np2py312h2ed9cc7_21.conda
+  sha256: 947dfc09466a7ce01c2f6bd0090498df5dbd9179b5d078e787e0a4236852eb3f
+  md5: 362e11dd3d47063d58384debae863af4
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-rcpputils
+  - ros2-rcutils
+  - ros2-ros-workspace
+  - ros2-rosbag2-cpp
+  - ros2-rosbag2-storage
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
+  - libstdcxx >=14
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - numpy >=1.25,<3
+  - python_abi 3.12.* *_cp312
+  license: Apache-2.0
+  run_exports: {}
+  size: 205920
+  timestamp: 1788267812052
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-cpp-0.26.11-np2py312h2ed9cc7_21.conda
+  sha256: 25a76eec361a5ca487d6dfa4db251055b70145218e1c0d554a773f6849fc6dd6
+  md5: ded7658ed7d2fb803ebe4505fb52f3d6
+  depends:
+  - python
+  - ros2-ament-index-cpp
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-pluginlib
+  - ros2-rclcpp
+  - ros2-rcpputils
+  - ros2-rcutils
+  - ros2-rmw
+  - ros2-rmw-implementation
+  - ros2-ros-workspace
+  - ros2-rosbag2-storage
+  - ros2-rosidl-runtime-c
+  - ros2-rosidl-runtime-cpp
+  - ros2-rosidl-typesupport-cpp
+  - ros2-rosidl-typesupport-introspection-cpp
+  - libgcc >=14
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - python_abi 3.12.* *_cp312
+  license: Apache-2.0
+  run_exports: {}
+  size: 354568
+  timestamp: 1788266449398
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-interfaces-0.26.11-np2py312h2ed9cc7_21.conda
+  sha256: 0b09f0b44d142cf9cc7948e001afbd52c6fda8ba219fa2d1d4b7ba9c35eb214d
+  md5: a767cbae03e2dc437d9ecf7984bed959
+  depends:
+  - python
+  - ros2-builtin-interfaces
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - ros2-rosidl-default-runtime
+  - libstdcxx >=14
+  - libgcc >=14
+  - __glibc >=2.17,<3.0.a0
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - numpy >=1.25,<3
+  - python_abi 3.12.* *_cp312
+  license: Apache-2.0
+  run_exports: {}
+  size: 589742
+  timestamp: 1788261147787
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-py-0.26.11-np2py312h2ed9cc7_21.conda
+  sha256: da1f594d900c9f2d003b5a8a3e7bbab0e6741b04a720056104029de65a0394b9
+  md5: 8f33d6c364b061ea7d21ef9eb0c21dd3
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-pybind11-vendor
+  - ros2-rclpy
+  - ros2-ros-workspace
+  - ros2-rosbag2-compression
+  - ros2-rosbag2-cpp
+  - ros2-rosbag2-storage
+  - ros2-rosbag2-transport
+  - ros2-rpyutils
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - libgcc >=14
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  license: Apache-2.0
+  run_exports: {}
+  size: 836635
+  timestamp: 1788268950979
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-storage-0.26.11-np2py312h2ed9cc7_21.conda
+  sha256: 3ba9babb1c0ee91e09b71a64a88049f36472b9d56a6076155a66aaadcf1c9a26
+  md5: dcabdb66af012586245fb8851b7e2ba0
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-pluginlib
+  - ros2-rclcpp
+  - ros2-rcutils
+  - ros2-rmw
+  - ros2-ros-workspace
+  - ros2-yaml-cpp-vendor
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - libgcc >=14
+  - numpy >=1.25,<3
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  license: Apache-2.0
+  run_exports: {}
+  size: 278044
+  timestamp: 1788265306936
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-storage-default-plugins-0.26.11-np2py312h2ed9cc7_21.conda
+  sha256: 2cb8976b8e06b3b9bb265ee3eba28f1861d0eacf7a692ced410c5f229c8cafbc
+  md5: 443a412e0e30411ad3bd319982489c22
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - ros2-rosbag2-storage-mcap
+  - ros2-rosbag2-storage-sqlite3
+  - libgcc >=14
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - python_abi 3.12.* *_cp312
+  license: Apache-2.0
+  run_exports: {}
+  size: 22474
+  timestamp: 1788266159545
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-storage-mcap-0.26.11-np2py312h2ed9cc7_21.conda
+  sha256: 67f0fe493d0063e2b237a0f9b8f041f94a73dfd608a29438d294bde329fc225b
+  md5: 6f86e896fc43e1e02424e9bfc5ba3168
+  depends:
+  - python
+  - ros2-ament-index-cpp
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-mcap-vendor
+  - ros2-pluginlib
+  - ros2-rcutils
+  - ros2-ros-workspace
+  - ros2-rosbag2-storage
+  - ros2-yaml-cpp-vendor
+  - __glibc >=2.17,<3.0.a0
+  - libgcc >=14
+  - libstdcxx >=14
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - numpy >=1.25,<3
+  - python_abi 3.12.* *_cp312
+  license: Apache-2.0
+  run_exports: {}
+  size: 199253
+  timestamp: 1788265893839
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-storage-sqlite3-0.26.11-np2py312h2ed9cc7_21.conda
+  sha256: c4ae293e8c6c862eb2e01e4bec78f6c4c689ae8219e8ef5fc9ef7438bbf4976f
+  md5: 23f688173d005ccd1c0fa59496037ac7
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-pluginlib
+  - ros2-rcpputils
+  - ros2-rcutils
+  - ros2-ros-workspace
+  - ros2-rosbag2-storage
+  - ros2-sqlite3-vendor
+  - ros2-yaml-cpp-vendor
+  - libstdcxx >=14
+  - libgcc >=14
+  - __glibc >=2.17,<3.0.a0
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  license: Apache-2.0
+  run_exports: {}
+  size: 244275
+  timestamp: 1788265876218
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosbag2-transport-0.26.11-np2py312h2ed9cc7_21.conda
+  sha256: 7731c453170a5e79b4d4f35144f80c12e559613ec14f51e2658c2cb49d16172b
+  md5: 9a5825e28cf07ed9cbaf50f5d6ca0df8
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-keyboard-handler
+  - ros2-rclcpp
+  - ros2-rclcpp-components
+  - ros2-rcpputils
+  - ros2-rcutils
+  - ros2-rmw
+  - ros2-ros-workspace
+  - ros2-rosbag2-compression
+  - ros2-rosbag2-cpp
+  - ros2-rosbag2-interfaces
+  - ros2-rosbag2-storage
+  - ros2-yaml-cpp-vendor
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - libgcc >=14
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - numpy >=1.25,<3
+  - python_abi 3.12.* *_cp312
+  license: Apache-2.0
+  run_exports: {}
+  size: 579412
+  timestamp: 1788268298302
 - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-rosgraph-msgs-2.0.4-np2py312h2ed9cc7_21.conda
   sha256: 8aa0b4452db5a026ef3c06f6db17a6c70e1314d1b71ea23369246d7984a39792
   md5: 11129ccbff6a6e2c720c9cf7660b4653
@@ -6228,6 +6717,25 @@ packages:
   run_exports: {}
   size: 27736
   timestamp: 1788259645249
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-sqlite3-vendor-0.26.11-np2py312h2ed9cc7_21.conda
+  sha256: ef4a3161470dbde20307ac5b57fd811d63597c0a436399d9c875e6d1e74327c8
+  md5: f75a608820b40f11980c28f7e08c7bac
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - sqlite
+  - libgcc >=14
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - libsqlite >=3.53.4,<4.0a0
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  license: Apache-2.0
+  run_exports: {}
+  size: 24727
+  timestamp: 1788258606068
 - conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-sros2-0.13.6-np2py312h2ed9cc7_21.conda
   sha256: 443a1e7bf4d68e8136f827b7b34658bbe83b9bcf02c26441d471dfb4937ee319
   md5: 8a923fd09c9337570265395552deaa45
@@ -6484,6 +6992,44 @@ packages:
   run_exports: {}
   size: 385271
   timestamp: 1788261941497
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-yaml-cpp-vendor-9.0.1-np2py312h2ed9cc7_21.conda
+  sha256: acf2ce5e624f8ba2b95d923bcaf928898629bc14bd98272d5dd639440753970c
+  md5: cbd97e994be007263ff53f90271074d6
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - yaml-cpp
+  - libgcc >=14
+  - libstdcxx >=14
+  - __glibc >=2.17,<3.0.a0
+  - numpy >=1.25,<3
+  - yaml-cpp >=0.8.0,<0.9.0a0
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  license: Apache-2.0 OR MIT
+  run_exports: {}
+  size: 23311
+  timestamp: 1788258604462
+- conda: https://prefix.dev/robostack-jazzy/linux-64/ros2-zstd-vendor-0.26.11-np2py312h2ed9cc7_21.conda
+  sha256: 5c18648fa21696ef3efb38011f3bf3bd37d440c925a66ca7695c9532c097406e
+  md5: 34428dc42c07f8871e60ff21d4eefd09
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - zstd
+  - libgcc >=14
+  - __glibc >=2.17,<3.0.a0
+  - libstdcxx >=14
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - zstd >=1.5.7,<1.6.0a0
+  license: Apache-2.0 OR BSD-3-Clause
+  run_exports: {}
+  size: 24252
+  timestamp: 1788258615828
 - conda: https://prefix.dev/robostack-jazzy/win-64/ros-jazzy-ros-core-0.11.0-h9490d1a_21.conda
   sha256: b5941ee1c44045a63b415ee91fd258e0d77c0d64e6612a14be6657ae0c1f7940
   md5: 6c9319ebe786dc31bc9ac1193345ad04
@@ -6492,6 +7038,14 @@ packages:
   run_exports: {}
   size: 2003
   timestamp: 1788461219578
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros-jazzy-ros2bag-0.26.11-h9490d1a_21.conda
+  sha256: 92299487ccc8c06849f7489ef2f68840bdc8aba5488c4216cd8a364f823db76e
+  md5: 27603bed7d841a7dce09992f6b1cb0bf
+  depends:
+  - ros2-ros2bag ==0.26.11
+  run_exports: {}
+  size: 2001
+  timestamp: 1788468308045
 - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-action-msgs-2.0.4-np2py312hf80f32c_21.conda
   sha256: c299aa6c698e5233b89845c16271014619e8f9428628b34e2d1868b19c543174
   md5: 47f6aac0752e302c5ac331c8c983be8d
@@ -7729,6 +8283,23 @@ packages:
   run_exports: {}
   size: 2161621
   timestamp: 1788349603302
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-keyboard-handler-0.3.2-np2py312hf80f32c_21.conda
+  sha256: 33eb93ce55bee5a14c822e2bb8d06145cd539ada7dbdeb678ade9da79d4a7bf4
+  md5: c1aa3f45145ed8302f363fcd5c651607
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  license: Apache-2.0
+  run_exports: {}
+  size: 53338
+  timestamp: 1788358179805
 - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-launch-3.4.11-np2py312hf80f32c_22.conda
   sha256: f153a7f0f60f0387bffc00dab296c359090de774cd93b573071618054dc998ed
   md5: 88e71b32533c453129135ca0cdebb9ba
@@ -7876,6 +8447,24 @@ packages:
   run_exports: {}
   size: 23856
   timestamp: 1788354918024
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-liblz4-vendor-0.26.11-np2py312hf80f32c_21.conda
+  sha256: cfd71eacdda073b49b23f2984b80d671b78d717aac31f24bfc1e9703cd7a2755
+  md5: 22807c747aabdae3b082848f533efd59
+  depends:
+  - lz4
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.25,<3
+  license: Apache-2.0 OR BSD-3-Clause OR GPL-2.0-only
+  run_exports: {}
+  size: 21686
+  timestamp: 1788353255489
 - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-libstatistics-collector-1.7.4-np2py312hf80f32c_21.conda
   sha256: 650380ff112c6afe76494f3f158a8dfef0bca6612e8711bdb37fbf444250fb0d
   md5: f97402dc7330e83190899423e33268ce
@@ -7938,6 +8527,25 @@ packages:
   run_exports: {}
   size: 255555
   timestamp: 1788420342651
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-mcap-vendor-0.26.11-np2py312hf80f32c_21.conda
+  sha256: 7ca614193de7a651977827fd41f4d084c5f135b95a501eb6093b4fdb39ddf3f2
+  md5: 89fa689074801e00c21bda619b53e886
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-liblz4-vendor
+  - ros2-ros-workspace
+  - ros2-zstd-vendor
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - python_abi 3.12.* *_cp312
+  license: Apache-2.0
+  run_exports: {}
+  size: 165505
+  timestamp: 1788355036596
 - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-nav-msgs-5.3.8-np2py312hf80f32c_21.conda
   sha256: c7917709491bbfa99a890a19e7b7f9492b1ff3f2b48f5efe507c110448a2d0f7
   md5: 1da657d4e2f624524284c3acd448270b
@@ -7999,6 +8607,24 @@ packages:
   run_exports: {}
   size: 117392
   timestamp: 1788417176619
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-pybind11-vendor-3.1.3-np2py312hf80f32c_21.conda
+  sha256: eda94488e15055514eb1f4661a7e6bceb4532d6e216b656a864c96b8f58b2236
+  md5: 4c7f3bcdbbc2e56bb814b93d25dacb09
+  depends:
+  - pybind11
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - numpy >=1.25,<3
+  license: Apache-2.0 OR BSD-3-Clause
+  run_exports: {}
+  size: 20716
+  timestamp: 1788352652587
 - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-python-cmake-module-0.11.1-np2py312hf80f32c_21.conda
   sha256: ff693e6f5bb9fda6722a64d83ab344a62e6bf22fd0ffa10142c970621b3a3bb0
   md5: 03aab76c27cb235c1f136a773f9655cf
@@ -8706,6 +9332,29 @@ packages:
   run_exports: {}
   size: 44079
   timestamp: 1788434179568
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-ros2bag-0.26.11-np2py312hf80f32c_21.conda
+  sha256: 5684beaf3010571abfd8bc6a6fc0d61d5819a01d1482a35c3c83bae6d9b5923b
+  md5: 7f9ea970de922bb0f07c2eec14b2c1b1
+  depends:
+  - python
+  - pyyaml
+  - ros2-ament-index-python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-rclpy
+  - ros2-ros-workspace
+  - ros2-ros2cli
+  - ros2-rosbag2-py
+  - ros2-rosbag2-storage-default-plugins
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - numpy >=1.25,<3
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  license: Apache-2.0
+  run_exports: {}
+  size: 66500
+  timestamp: 1788465114341
 - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-ros2cli-0.32.11-np2py312hf80f32c_22.conda
   sha256: 5a928ba15d3abd41e16dbbd95caae33d5989851322ce28dae89cc53618c3f38b
   md5: 427d31f063e03b6e02a394d7d9f0330e
@@ -9048,6 +9697,214 @@ packages:
   run_exports: {}
   size: 70670
   timestamp: 1788433599426
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-compression-0.26.11-np2py312hf80f32c_21.conda
+  sha256: 519be221a81a1d0eabbd8a065b217f45141afbdd3f48d3f6abe4ca909f78d12f
+  md5: b5efe53d78e21b282e7fd7043ec8ec6b
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-rcpputils
+  - ros2-rcutils
+  - ros2-ros-workspace
+  - ros2-rosbag2-cpp
+  - ros2-rosbag2-storage
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - python_abi 3.12.* *_cp312
+  license: Apache-2.0
+  run_exports: {}
+  size: 161266
+  timestamp: 1788451111173
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-cpp-0.26.11-np2py312hf80f32c_21.conda
+  sha256: 364dd7ec462d26cab7fd8f246d13bae9ee99e4454e208bd2a413d578a6d63f1a
+  md5: c565191c41567d8fed7a17bb3c3afbf0
+  depends:
+  - python
+  - ros2-ament-index-cpp
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-pluginlib
+  - ros2-rclcpp
+  - ros2-rcpputils
+  - ros2-rcutils
+  - ros2-rmw
+  - ros2-rmw-implementation
+  - ros2-ros-workspace
+  - ros2-rosbag2-storage
+  - ros2-rosidl-runtime-c
+  - ros2-rosidl-runtime-cpp
+  - ros2-rosidl-typesupport-cpp
+  - ros2-rosidl-typesupport-introspection-cpp
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.25,<3
+  license: Apache-2.0
+  run_exports: {}
+  size: 278744
+  timestamp: 1788447065472
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-interfaces-0.26.11-np2py312hf80f32c_21.conda
+  sha256: f219dc21defe96ae0816d51ecfe105e462bb1688c703a7c0149cc890aa88ecb8
+  md5: 957cfe48b8bd1a9911ea6d1eb76a5cc5
+  depends:
+  - python
+  - ros2-builtin-interfaces
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - ros2-rosidl-default-runtime
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - numpy >=1.25,<3
+  license: Apache-2.0
+  run_exports: {}
+  size: 494531
+  timestamp: 1788420868747
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-py-0.26.11-np2py312hf80f32c_21.conda
+  sha256: 452de9280a2d8ec672470cb500147620d5702f1ed2ec7c2fef88449edfb700ea
+  md5: e9fdaa5a5bf727f3d195fddf1a2abd23
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-pybind11-vendor
+  - ros2-rclpy
+  - ros2-ros-workspace
+  - ros2-rosbag2-compression
+  - ros2-rosbag2-cpp
+  - ros2-rosbag2-storage
+  - ros2-rosbag2-transport
+  - ros2-rpyutils
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - python_abi 3.12.* *_cp312
+  license: Apache-2.0
+  run_exports: {}
+  size: 566108
+  timestamp: 1788462641448
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-storage-0.26.11-np2py312hf80f32c_21.conda
+  sha256: cf07eaec235a13f69c07ba5d966efc9915a63f864d6a9685e9112989d6399180
+  md5: d8f0f6f0f05f7e6aa6c2c3db2c9380b7
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-pluginlib
+  - ros2-rclcpp
+  - ros2-rcutils
+  - ros2-rmw
+  - ros2-ros-workspace
+  - ros2-yaml-cpp-vendor
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.25,<3
+  license: Apache-2.0
+  run_exports: {}
+  size: 191888
+  timestamp: 1788431879933
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-storage-default-plugins-0.26.11-np2py312hf80f32c_21.conda
+  sha256: 22465f8291204fbf43869ab795dcb4303e07c09a4a77fffb7ee532874a24e69b
+  md5: cbb479aa9a724889dd38acebb3d42f23
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - ros2-rosbag2-storage-mcap
+  - ros2-rosbag2-storage-sqlite3
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - numpy >=1.25,<3
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  license: Apache-2.0
+  run_exports: {}
+  size: 19947
+  timestamp: 1788443964944
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-storage-mcap-0.26.11-np2py312hf80f32c_21.conda
+  sha256: 0f8e9e5df4be442c19179d3699b24554845b4a8be85e08a1d8a1723c09082dea
+  md5: 9a2119e55e8cf2c292e1b0e560bcb9ef
+  depends:
+  - python
+  - ros2-ament-index-cpp
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-mcap-vendor
+  - ros2-pluginlib
+  - ros2-rcutils
+  - ros2-ros-workspace
+  - ros2-rosbag2-storage
+  - ros2-yaml-cpp-vendor
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - python_abi 3.12.* *_cp312
+  license: Apache-2.0
+  run_exports: {}
+  size: 133853
+  timestamp: 1788434589761
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-storage-sqlite3-0.26.11-np2py312hf80f32c_21.conda
+  sha256: d64f50d164e4911059525bb52a6b68359e408213fc6580f591e2bd2374d62af6
+  md5: e8a6ce6166dc94e242da1ec801a1175b
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-pluginlib
+  - ros2-rcpputils
+  - ros2-rcutils
+  - ros2-ros-workspace
+  - ros2-rosbag2-storage
+  - ros2-sqlite3-vendor
+  - ros2-yaml-cpp-vendor
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - python_abi 3.12.* *_cp312
+  license: Apache-2.0
+  run_exports: {}
+  size: 179436
+  timestamp: 1788434510187
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosbag2-transport-0.26.11-np2py312hf80f32c_21.conda
+  sha256: 9dc0822ca7ef8aaf365515e0e42a956365672f1db7ded99f60ba010aceba18e7
+  md5: 67fab51496bb3dcdcf13a8ce96de0350
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-keyboard-handler
+  - ros2-rclcpp
+  - ros2-rclcpp-components
+  - ros2-rcpputils
+  - ros2-rcutils
+  - ros2-rmw
+  - ros2-ros-workspace
+  - ros2-rosbag2-compression
+  - ros2-rosbag2-cpp
+  - ros2-rosbag2-interfaces
+  - ros2-rosbag2-storage
+  - ros2-yaml-cpp-vendor
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - python_abi 3.12.* *_cp312
+  - numpy >=1.25,<3
+  license: Apache-2.0
+  run_exports: {}
+  size: 358847
+  timestamp: 1788458418104
 - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-rosgraph-msgs-2.0.4-np2py312hf80f32c_21.conda
   sha256: c0eb812415ce3163241a07fbdd8d5c7a4685f0381e71b7848e2bc92bdb89e74b
   md5: fadf45fb74f4070f78312d95400bf1c0
@@ -9797,6 +10654,25 @@ packages:
   run_exports: {}
   size: 24757
   timestamp: 1788359208000
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-sqlite3-vendor-0.26.11-np2py312hf80f32c_21.conda
+  sha256: 6c77eefae0e6670f4bfb1e03b0dacbb51c805ba9c5bd5220431fa5779ea2e43e
+  md5: fbf1a6426c366e600ff488da6f71d574
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - sqlite
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - libsqlite >=3.53.4,<4.0a0
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - python_abi 3.12.* *_cp312
+  license: Apache-2.0
+  run_exports: {}
+  size: 22040
+  timestamp: 1788352493773
 - conda: https://prefix.dev/robostack-jazzy/win-64/ros2-sros2-0.13.6-np2py312hf80f32c_21.conda
   sha256: ded5f5c7e3624663f4bca66c13db26a46e83a3c3fc68fc0cdef85b86b5f18d41
   md5: 6458c10d208db03b702f0fe905a1112c
@@ -10051,3 +10927,41 @@ packages:
   run_exports: {}
   size: 344483
   timestamp: 1788425476369
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-yaml-cpp-vendor-9.0.1-np2py312hf80f32c_21.conda
+  sha256: b2787f6ed54c178abe9aba69d4796d0b32f5d4aab4aa646f2524d61ca1a998ab
+  md5: 07e4a2465c18e5696a43d07f1ef8f83f
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - yaml-cpp
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - numpy >=1.25,<3
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  - yaml-cpp >=0.8.0,<0.9.0a0
+  - python_abi 3.12.* *_cp312
+  license: Apache-2.0 OR MIT
+  run_exports: {}
+  size: 20657
+  timestamp: 1788353140840
+- conda: https://prefix.dev/robostack-jazzy/win-64/ros2-zstd-vendor-0.26.11-np2py312hf80f32c_21.conda
+  sha256: db72fef820c6574f7ec4e9501151bb55a32832209ab9ff866eac9e9c030972cd
+  md5: c597122003e6d44c049cca1e74d9dabf
+  depends:
+  - python
+  - ros2-distro-mutex 0.16.* jazzy_*
+  - ros2-ros-workspace
+  - zstd
+  - vc >=14.3,<15
+  - vc14_runtime >=14.44.35208
+  - ucrt >=10.0.20348.0
+  - zstd >=1.5.7,<1.6.0a0
+  - numpy >=1.25,<3
+  - python_abi 3.12.* *_cp312
+  - ros2-distro-mutex >=0.16.0,<0.17.0a0
+  license: Apache-2.0 OR BSD-3-Clause
+  run_exports: {}
+  size: 21400
+  timestamp: 1788353199788

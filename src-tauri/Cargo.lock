@@ -2490,11 +2490,13 @@ name = "ros-desktop"
 version = "0.1.0"
 dependencies = [
  "indexmap 1.9.3",
+ "libc",
  "quick-xml",
  "serde",
  "serde_json",
  "tauri",
  "tauri-build",
+ "windows-sys 0.61.2",
 ]
 
 [[package]]
