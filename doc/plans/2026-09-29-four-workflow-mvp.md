@@ -13,3 +13,7 @@
 ## Verification record (2026-09-29)
 
 Windows: frontend typecheck/build and dist, cargo fmt/test/check, and the explicit live daemon test pass (18 unit tests and one live test). A live Pixi-environment CLI smoke confirmed echo output and graceful stop, launch ready output and stop, and bag recording and stop with five messages in finalized metadata. Validation unit tests reject malformed inputs and existing bag targets. The smoke did not invoke Tauri IPC or interact with the GUI; ProcessManager duplicate-start, unexpected-exit, forced-stop and shutdown paths have not had dedicated live lifecycle tests, nor has Ubuntu runtime. These remain verification gaps rather than claimed passes.
+
+## Regression verification addendum (2026-10-01)
+
+A parallel re-verification confirmed frontend typecheck/build, cargo fmt/check, and the IPC contract (all commands/events aligned, no `pixi run` in GUI paths). One new launch test (`rejects_symlink_escape`, added with the MVP commit) failed on this machine because local security software silently degrades symlink creation into a regular file. The test now verifies the created link with `symlink_metadata` and skips degraded environments, matching the existing no-privilege protection; escape detection logic is unchanged. Final count: 20 passed, one live test ignored. The Tauri IPC/GUI end-to-end gap remains open.

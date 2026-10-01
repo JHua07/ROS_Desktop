@@ -313,6 +313,14 @@ mod tests {
         {
             return; // Windows symlink privileges may be unavailable in CI.
         }
+        if !fs::symlink_metadata(workspace.0.join("escape.launch.py"))
+            .expect("symlink metadata")
+            .file_type()
+            .is_symlink()
+        {
+            return; // Security software can silently degrade symlink creation
+            // into a regular file; treat like missing privileges.
+        }
         assert!(list_targets(&workspace.0).unwrap().is_empty());
         assert!(
             build_command(

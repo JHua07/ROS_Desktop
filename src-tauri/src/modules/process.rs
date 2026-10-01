@@ -50,6 +50,9 @@ impl From<io::Error> for ProcessError {
 #[derive(Clone, Copy, Debug, Serialize)]
 #[serde(rename_all = "snake_case")]
 pub enum ProcessPhase {
+    // IPC contract placeholder: the frontend sets `starting` locally before the
+    // first event arrives; the Rust side emits `running` once the child spawns.
+    #[allow(dead_code)]
     Starting,
     Running,
     Stopping,
