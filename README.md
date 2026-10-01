@@ -23,7 +23,7 @@ pnpm --dir frontend build
 pnpm tauri dev
 ```
 
-The first three commands do not need ROS, Pixi, or Rust. `pnpm tauri dev` needs the native Rust and platform prerequisites.
+The first three commands do not need ROS, Pixi, or Rust. `pnpm tauri dev` needs the native Rust and platform prerequisites. On machines where local security software fails the Tauri CLI's `beforeDevCommand` spawn with Windows error 231 ("all pipe instances are busy"), start the pieces directly instead: `pnpm --dir frontend dev` in one terminal and `cargo run --manifest-path src-tauri/Cargo.toml` in another; the debug build loads the same dev server.
 
 To inspect the declared versions and tools visible in the current PowerShell session:
 
@@ -46,7 +46,7 @@ pixi.toml       Cross-platform Pixi/RoboStack workspace metadata
 
 ## Verification boundary
 
-On Windows (2026-10-01), `pnpm --dir frontend typecheck`, `pnpm --dir frontend build` (including `frontend/dist/index.html`), `cargo fmt --manifest-path src-tauri/Cargo.toml -- --check`, `cargo test --manifest-path src-tauri/Cargo.toml` (20 passed, one live test ignored by default), and `cargo check --manifest-path src-tauri/Cargo.toml` pass. The ignored live daemon test passes when explicitly enabled. The symlink-escape launch test verifies the created link and skips when local security software silently degrades symlink creation into a regular file. A Pixi-environment CLI smoke confirmed topic publication and echo output, a workspace launch ready line, and graceful bag stop with `metadata.yaml` and five recorded messages. This smoke exercises the same ROS executable and Windows stop helper, not the full Tauri IPC/GUI route; that route and Ubuntu runtime remain unverified. A frozen-lockfile install passed earlier with pnpm 12.7.0.
+On Windows (2026-10-01), `pnpm --dir frontend typecheck`, `pnpm --dir frontend build` (including `frontend/dist/index.html`), `cargo fmt --manifest-path src-tauri/Cargo.toml -- --check`, `cargo test --manifest-path src-tauri/Cargo.toml` (20 passed, one live test ignored by default), and `cargo check --manifest-path src-tauri/Cargo.toml` pass. The ignored live daemon test passes when explicitly enabled. The symlink-escape launch test verifies the created link and skips when local security software silently degrades symlink creation into a regular file. A Pixi-environment CLI smoke confirmed topic publication and echo output, a workspace launch ready line, and graceful bag stop with `metadata.yaml` and five recorded messages. That smoke exercises the ROS executable and Windows stop helper rather than the GUI. A 2026-10-01 desktop run (dev server plus `cargo run`) launched the app, captured the Pixi environment, supervised a daemon cold start that exceeded the five-second startup probe and self-healed on the first graph snapshot, and served the first real GUI-to-IPC graph query. The browser preview was verified with Playwright: all four panels render, every native action is disabled with an explanation, and the console is clean. Interactive echo/launch/bag use inside the desktop window and Ubuntu runtime remain unverified. A frozen-lockfile install passed earlier with pnpm 12.7.0.
 
 ## Workflows
 
