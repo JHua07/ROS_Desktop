@@ -4,13 +4,15 @@ import GraphOverview from "./features/GraphOverview";
 import TopicEcho from "./features/TopicEcho";
 import LaunchPanel from "./features/LaunchPanel";
 import BagPanel from "./features/BagPanel";
+import VizPanel from "./features/VizPanel";
 import type { RosGraphSnapshot } from "./modules/ros";
 import "./styles.css";
 
-type View = "overview" | "echo" | "launch" | "bag";
+type View = "overview" | "echo" | "launch" | "bag" | "viz";
 const tabs: { key: View; label: string }[] = [
   { key: "overview", label: "Overview" }, { key: "echo", label: "Topic echo" },
   { key: "launch", label: "Launch" }, { key: "bag", label: "Bag recorder" },
+  { key: "viz", label: "Visualization" },
 ];
 export default function App() {
   const [view, setView] = useState<View>("overview");
@@ -33,6 +35,7 @@ export default function App() {
       <div hidden={view !== "echo"}><TopicEcho topics={graph?.topics ?? []} available={native && graph !== null} /></div>
       <div hidden={view !== "launch"}><LaunchPanel available={native && graph !== null} /></div>
       <div hidden={view !== "bag"}><BagPanel topics={graph?.topics ?? []} available={native && graph !== null} /></div>
+      <div hidden={view !== "viz"}><VizPanel topics={graph?.topics ?? []} available={native && graph !== null} /></div>
       {view !== "overview" && graph === null && <p className="workflow-note">ROS graph unavailable. Refresh Overview in the desktop app before starting a workflow.</p>}
     </section>
   </main>;

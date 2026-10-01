@@ -51,3 +51,5 @@ On Windows (2026-10-01), `pnpm --dir frontend typecheck`, `pnpm --dir frontend b
 ## Workflows
 
 Use Overview to refresh Pixi/ROS/daemon status and topic/node/service lists. Echo selects one graph topic. Launch scans workspace-contained `.launch.py`, `.launch.xml`, and `.launch.yaml` targets, passing optional `name:=value` arguments directly. Bag records selected topics to a new, non-existing output path with an existing parent. Each workflow has status, bounded logs, and stop control. A forced stop may leave incomplete bag output, so inspect its metadata.
+
+Visualization subscribes to selected point-cloud (`vlpos/msg/H2oPointCloud`), camera (`sensor_msgs/msg/Image`), and IMU (`sensor_msgs/msg/Imu`) topics through a Python bridge subprocess; the frontend renders 3D point clouds with three.js, camera frames on a canvas, and IMU waveforms with uPlot. See the [visualization design](doc/specs/2026-10-01-visualization.md).

@@ -15,6 +15,9 @@ Verified on 2026-09-28 for the Windows-first workspace in `D:\ROS_Desktop`.
 | Pixi | 0.81.0 | [Pixi installer version](https://github.com/prefix-dev/pixi/blob/main/install/install.sh) |
 | ROS 2 | Jazzy Jalisco | [Jazzy LTS announcement](https://discourse.ros.org/t/ros-2-jazzy-jalisco-released/37862) |
 | RoboStack | `robostack-jazzy` | [RoboStack Jazzy packages](https://robostack.github.io/jazzy.html) |
+| three.js | 0.186.1 | Visualization 3D rendering; pinned in `frontend/package.json` with `@types/three` 0.186.0 |
+| uPlot | 1.6.32 | IMU waveform chart; pinned in `frontend/package.json` (bundles its own types) |
+| base64 (Rust) | 0.22 | Frame payload encoding; pinned in `src-tauri/Cargo.toml` |
 
 The JavaScript package versions are also pinned in `package.json` files and resolved in `pnpm-lock.yaml`. The committed `pixi.lock` resolves `ros-jazzy-ros-core` for graph/echo/launch and `ros-jazzy-ros2bag` for recording. Add any further ROS packages only when a concrete workflow demonstrates the need.
 

@@ -4,6 +4,7 @@ use modules::{
     environment::{CapturedEnvironment, EnvironmentError, EnvironmentStatus, unavailable_status},
     process::{ProcessError, ProcessKind, ProcessManager, ProcessSession},
     ros::{Endpoint, RosGraphSnapshot, XmlRpcClient, start_or_reuse_daemon},
+    viz::{VizConfig, VizManager, VizSession},
 };
 use std::{path::PathBuf, time::Duration};
 use tauri::{AppHandle, Manager, RunEvent, State};
@@ -19,6 +20,7 @@ pub struct AppState {
     environment_error: Option<EnvironmentError>,
     client: Option<XmlRpcClient>,
     processes: ProcessManager,
+    viz: VizManager,
 }
 
 impl AppState {
@@ -34,6 +36,7 @@ impl AppState {
                     environment_error: None,
                     client,
                     processes: ProcessManager::default(),
+                    viz: VizManager::default(),
                 }
             }
             Err(error) => Self {
@@ -42,6 +45,7 @@ impl AppState {
                 environment_error: Some(error),
                 client: None,
                 processes: ProcessManager::default(),
+                viz: VizManager::default(),
             },
         }
     }
@@ -147,6 +151,21 @@ fn stop_ros_process(
 ) -> Result<(), ProcessError> {
     state.processes.stop(&app, kind)
 }
+#[tauri::command]
+fn start_viz(
+    app: AppHandle,
+    state: State<'_, AppState>,
+    config: serde_json::Value,
+) -> Result<VizSession, ProcessError> {
+    let config = VizConfig::from_json(config)?;
+    state
+        .viz
+        .start(&app, state.environment()?, state.workspace(), &config)
+}
+#[tauri::command]
+fn stop_viz(app: AppHandle, state: State<'_, AppState>) -> Result<(), ProcessError> {
+    state.viz.stop(&app)
+}
 
 pub fn run() {
     tauri::Builder::default()
@@ -169,13 +188,18 @@ pub fn run() {
             list_launch_targets,
             start_launch,
             start_bag,
-            stop_ros_process
+            stop_ros_process,
+            start_viz,
+            stop_viz
         ])
         .build(tauri::generate_context!())
         .expect("error while building ROS Desktop")
         .run(|app, event| {
             if let RunEvent::ExitRequested { .. } = event {
                 let state = app.state::<AppState>();
+                if let Err(error) = state.viz.stop(app) {
+                    eprintln!("viz bridge stop during exit failed: {error}");
+                }
                 state.processes.stop_all(app);
                 state.processes.wait_for_all(Duration::from_secs(6));
             }

@@ -95,6 +95,12 @@ export default function GraphOverview({ onSnapshot }: GraphOverviewProps) {
         <div><dt>Daemon</dt><dd>{!native ? "Desktop only" : loading ? "Checking…" : daemonAvailable ? "Connected" : "Unavailable"}</dd></div>
       </dl>
 
+      {environment?.overlay_packages && environment.overlay_packages.length > 0 && (
+        <p className="graph-overview-notice" role="status">
+          Workspace overlays active: {environment.overlay_packages.join(", ")}.
+        </p>
+      )}
+
       {error && <p className="graph-overview-error" role="alert">{error}</p>}
       {loading && <p role="status">Loading ROS graph…</p>}
 
