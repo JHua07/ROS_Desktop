@@ -31,7 +31,7 @@ To inspect the declared versions and tools visible in the current PowerShell ses
 pnpm check:versions
 ```
 
-With Pixi 0.81.0 installed (`~/.pixi/bin/pixi.exe`), run `pixi install` to materialize the ROS Jazzy environment (about 1.5 GB). The resulting `pixi.lock` is committed. The GUI captures `pixi shell-hook --json` once, starts or reuses the ros2 daemon, and sends graph queries to its localhost XML-RPC endpoint. The bag workflow additionally requires `ros-jazzy-ros2bag`; add further packages only for demonstrated needs.
+With Pixi 0.81.0 installed (`~/.pixi/bin/pixi.exe`), run `pixi install` to materialize the ROS Jazzy environment (about 1.5 GB). The resulting `pixi.lock` is committed. The GUI captures `pixi shell-hook --json` once, starts or reuses the ros2 daemon, and sends graph queries to its localhost XML-RPC endpoint. The bag workflow additionally requires `ros-jazzy-ros2bag`, and bag playback with static TF requires `ros-jazzy-tf2-msgs`; add further packages only for demonstrated needs. The `ros/vlpos` interface package provides the VLPos custom message types (`vlpos/msg/H2oPointCloud` and friends) needed to play and deserialize VLPos bags; rebuild it after changing the `.msg` files with `bash ros/build_vlpos.sh` (uses the separate `build` pixi environment with colcon and the system MSVC toolchain). CLI access to vlpos types needs the install overlay on top of the pixi environment: `AMENT_PREFIX_PATH` prefixed with `ros\install\vlpos`, `PYTHONPATH` prefixed with `ros\install\vlpos\Lib\site-packages`, and `PATH` prefixed with `ros\install\vlpos\bin`; the GUI does not wire this overlay yet.
 
 ## Repository layout
 
@@ -40,7 +40,7 @@ frontend/       React/Vite user interface and typed feature seams
 src-tauri/      Tauri configuration, Rust entry point, and IPC boundary
 doc/            Version baseline, architecture, plans, and design records
 scripts/        Developer checks
-ros/            Reserved workspace area for ROS packages and launch assets
+ros/            ROS interface packages (vlpos custom messages) and launch assets
 pixi.toml       Cross-platform Pixi/RoboStack workspace metadata
 ```
 
