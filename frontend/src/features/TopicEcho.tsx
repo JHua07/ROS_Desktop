@@ -10,6 +10,7 @@ import {
   type ProcessSession,
   type ProcessState,
 } from "../modules/process";
+import { EmptyIcon, EmptyState, LogScroll, StatusPill } from "./panel-ui";
 
 interface TopicEchoProps {
   topics: RosTopic[];
@@ -132,9 +133,20 @@ export function TopicEcho({ topics, available }: TopicEchoProps) {
 
   const active = state === "starting" || state === "running" || state === "stopping";
 
+  const startDisabledReason = !available
+    ? "Requires the ROS graph — refresh Overview in the desktop app"
+    : topics.length === 0
+      ? "The current graph has no topics"
+      : !selectedTopic
+        ? "No topic selected"
+        : active
+          ? "Echo already active"
+          : undefined;
+  const stopDisabledReason = session === null ? "No echo session yet" : state !== "running" ? "Echo is not running" : undefined;
+
   return (
-    <section className="workflow-card topic-echo" aria-label="Topic echo">
-      <h3>Topic echo</h3>
+    <section className="workflow-card topic-echo" aria-labelledby="topic-echo-title">
+      <h3 id="topic-echo-title">Echo stream</h3>
       <p>Stream messages from a topic in the current ROS graph.</p>
       <label htmlFor="topic-echo-select">Topic</label>
       <select
@@ -142,21 +154,51 @@ export function TopicEcho({ topics, available }: TopicEchoProps) {
         value={selectedTopic}
         onChange={(event) => setSelectedTopic(event.target.value)}
         disabled={!available || active || topics.length === 0}
+        title={topics.length === 0 ? "No topics in the current graph — refresh Overview" : undefined}
       >
         {topics.length === 0 && <option value="">No topics available</option>}
         {topics.map((topic) => <option key={topic.name} value={topic.name}>{topic.name}</option>)}
       </select>
-      <button type="button" onClick={() => void start()} disabled={!available || !selectedTopic || active}>
-        Start echo
-      </button>
-      <button type="button" onClick={() => void stop()} disabled={session === null || state !== "running"}>
-        Stop
-      </button>
-      {!available && <p>Native ROS environment unavailable. Topic echo requires the desktop backend.</p>}
-      <p role="status">Status: {state}{activeTopic && ` · ${activeTopic}`}{message && ` — ${message}`}</p>
-      <pre aria-label="Topic echo output" style={{ maxHeight: 320, overflow: "auto", whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>
+      <div className="panel-actions">
+        <button
+          type="button"
+          className="btn-primary"
+          onClick={() => void start()}
+          disabled={!available || !selectedTopic || active}
+          title={startDisabledReason}
+        >
+          Start echo
+        </button>
+        <button
+          type="button"
+          className="btn-danger"
+          onClick={() => void stop()}
+          disabled={session === null || state !== "running"}
+          title={stopDisabledReason}
+        >
+          Stop
+        </button>
+      </div>
+      {!available && <p className="action-hint" role="status">Native ROS environment unavailable. Topic echo requires the desktop backend.</p>}
+      <div className="status-row" role="status">
+        <StatusPill status={state} />
+        {activeTopic && <code>{activeTopic}</code>}
+        {message && <span className={`status-message${state === "failed" ? " status-message-error" : ""}`}>{message}</span>}
+      </div>
+      <LogScroll
+        label="Topic echo output"
+        lineCount={lines.length}
+        empty={
+          <EmptyState
+            compact
+            icon={<EmptyIcon name="terminal" />}
+            title="No echo output"
+            hint={activeTopic ? `Start an echo on ${activeTopic} to stream messages.` : "Start an echo to stream messages here."}
+          />
+        }
+      >
         {lines.map((entry, index) => <span key={index} data-stream={entry.stream}>{entry.stream === "stderr" ? "[stderr] " : ""}{entry.text}{"\n"}</span>)}
-      </pre>
+      </LogScroll>
     </section>
   );
 }

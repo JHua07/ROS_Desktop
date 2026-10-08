@@ -18,6 +18,7 @@ import {
 import { ImuView } from "./viz/ImuView";
 import { ImageView } from "./viz/ImageView";
 import { PointCloudView } from "./viz/PointCloudView";
+import { EmptyIcon, EmptyState, StatusPill } from "./panel-ui";
 import "./VizPanel.css";
 
 const KIND_BY_TYPE: Record<string, VizKind> = {
@@ -263,15 +264,24 @@ export function VizPanel({ topics, available }: VizPanelProps) {
   const hasViews = cloudEntries.length > 0 || imageTopics.length > 0 || imuTopics.length > 0;
   const statEntries = Object.entries(stats);
 
+  const startDisabledReason = !nativeAvailable
+    ? "Requires the desktop app"
+    : active
+      ? "Visualization in progress"
+      : chosen.length === 0
+        ? "Select at least one topic"
+        : undefined;
+  const stopDisabledReason = state !== "running" && state !== "starting" ? "Visualization is not running" : undefined;
+
   return (
-    <section className="workflow-card viz-panel" aria-label="Live visualization">
-      <h3>Visualization</h3>
+    <section className="workflow-card viz-panel" aria-labelledby="viz-title">
+      <h3 id="viz-title">Live views</h3>
       <p>
         Select point cloud, camera, and IMU topics from the current ROS graph and render live frames in the
         WebView.
       </p>
       {!nativeAvailable && (
-        <p>Native ROS environment unavailable. Live visualization requires the desktop backend.</p>
+        <p className="action-hint" role="status">Native ROS environment unavailable. Live visualization requires the desktop backend.</p>
       )}
       <div className="viz-topic-groups">
         {KIND_GROUPS.map((group) => {
@@ -279,7 +289,14 @@ export function VizPanel({ topics, available }: VizPanelProps) {
           return (
             <fieldset key={group.kind} disabled={!nativeAvailable || active}>
               <legend>{group.title}</legend>
-              {groupCandidates.length === 0 && <p className="viz-group-empty">No matching topics.</p>}
+              {groupCandidates.length === 0 && (
+                <EmptyState
+                  compact
+                  icon={<EmptyIcon name="views" />}
+                  title="No matching topics"
+                  hint="Topics of this type appear here after a graph refresh."
+                />
+              )}
               {groupCandidates.map((candidate) => (
                 <label key={candidate.name}>
                   <input
@@ -296,43 +313,58 @@ export function VizPanel({ topics, available }: VizPanelProps) {
       </div>
       {imageTopics.length > 0 && !active && (
         <div className="viz-image-options">
-          <label htmlFor="viz-max-width">Image max width</label>
-          <input
-            id="viz-max-width"
-            type="number"
-            min={1}
-            value={maxWidth}
-            onChange={(event) => setMaxWidth(Number(event.target.value) || 0)}
-            disabled={!nativeAvailable}
-          />
-          <label htmlFor="viz-downsample">Image downsample</label>
-          <input
-            id="viz-downsample"
-            type="number"
-            min={1}
-            value={downsample}
-            onChange={(event) => setDownsample(Number(event.target.value) || 0)}
-            disabled={!nativeAvailable}
-          />
+          <div className="viz-image-option">
+            <label htmlFor="viz-max-width">Image max width</label>
+            <input
+              id="viz-max-width"
+              type="number"
+              min={1}
+              value={maxWidth}
+              onChange={(event) => setMaxWidth(Number(event.target.value) || 0)}
+              disabled={!nativeAvailable}
+            />
+          </div>
+          <div className="viz-image-option">
+            <label htmlFor="viz-downsample">Image downsample</label>
+            <input
+              id="viz-downsample"
+              type="number"
+              min={1}
+              value={downsample}
+              onChange={(event) => setDownsample(Number(event.target.value) || 0)}
+              disabled={!nativeAvailable}
+            />
+          </div>
           <p className="viz-note">Applied to all selected camera topics.</p>
         </div>
       )}
-      <div>
+      <div className="panel-actions">
         <button
           type="button"
+          className="btn-primary"
           onClick={() => void start()}
           disabled={!nativeAvailable || active || chosen.length === 0}
+          title={startDisabledReason}
         >
           Start visualization
         </button>
-        <button type="button" onClick={() => void stop()} disabled={state !== "running" && state !== "starting"}>
+        <button
+          type="button"
+          className="btn-danger"
+          onClick={() => void stop()}
+          disabled={state !== "running" && state !== "starting"}
+          title={stopDisabledReason}
+        >
           Stop
         </button>
       </div>
-      <p role="status">
-        Status: {state}
-        {message && ` — ${message}`}
-      </p>
+      {nativeAvailable && !active && chosen.length === 0 && (
+        <p className="action-hint" role="status">Select at least one topic to enable Start.</p>
+      )}
+      <div className="status-row" role="status">
+        <StatusPill status={state} />
+        {message && <span className={`status-message${state === "failed" ? " status-message-error" : ""}`}>{message}</span>}
+      </div>
       {statusLines.length > 0 && (
         <pre className="viz-status-log" aria-label="Visualization events">
           {statusLines.map((line, index) => (
@@ -378,6 +410,16 @@ export function VizPanel({ topics, available }: VizPanelProps) {
               </div>
             </div>
           )}
+        </div>
+      )}
+      {!active && (
+        <div className="viz-views-empty">
+          <EmptyState
+            centered
+            icon={<EmptyIcon name="views" />}
+            title="No live views"
+            hint={chosen.length > 0 ? "Start visualization to render the selected topics." : "Select topics above, then start visualization."}
+          />
         </div>
       )}
     </section>

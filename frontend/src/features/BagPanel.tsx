@@ -5,6 +5,7 @@ import {
   describeProcessError, listenRosProcessEvents, startBag, stopRosProcess,
   type ProcessEvent, type ProcessState,
 } from "../modules/process";
+import { EmptyIcon, EmptyState, LogScroll, StatusPill } from "./panel-ui";
 
 interface BagPanelProps { topics: RosTopic[]; available: boolean }
 type LogLine = { id: number; stream: "stdout" | "stderr" | "status"; text: string };
@@ -20,7 +21,9 @@ export function BagPanel({ topics, available }: BagPanelProps) {
   const [busy, setBusy] = useState(false);
   const [message, setMessage] = useState("");
   const [lines, setLines] = useState<LogLine[]>([]);
-  const sessionId = useRef<number | null>(null);
+  const [topicFilter, setTopicFilter] = useState("");
+  const [sessionId, setSessionId] = useState<number | null>(null);
+  const sessionIdRef = useRef<number | null>(null);
   const starting = useRef(false);
   const earlyEvents = useRef<ProcessEvent[]>([]);
   const nextLineId = useRef(0);
@@ -52,9 +55,9 @@ export function BagPanel({ topics, available }: BagPanelProps) {
 
   const onEvent = useCallback((event: ProcessEvent) => {
     if (event.kind !== "bag") return;
-    if (starting.current && sessionId.current === null) {
+    if (starting.current && sessionIdRef.current === null) {
       earlyEvents.current = [...earlyEvents.current.slice(-(MAX_LINES - 1)), event];
-    } else if (event.session_id === sessionId.current) {
+    } else if (event.session_id === sessionIdRef.current) {
       applyEvent(event);
     }
   }, [applyEvent]);
@@ -72,6 +75,10 @@ export function BagPanel({ topics, available }: BagPanelProps) {
 
   const active = state === "starting" || state === "running" || state === "stopping";
   const chosen = selected.filter((name) => topicNames.includes(name));
+  const showTopicFilter = topicNames.length > 20;
+  const visibleTopics = showTopicFilter
+    ? topicNames.filter((name) => name.toLowerCase().includes(topicFilter.trim().toLowerCase()))
+    : topicNames;
 
   function toggleTopic(name: string) {
     setSelected((current) => current.includes(name) ? current.filter((item) => item !== name) : [...current, name]);
@@ -81,7 +88,8 @@ export function BagPanel({ topics, available }: BagPanelProps) {
     if (!nativeAvailable || !ready || busy || active || chosen.length === 0 || !output.trim()) return;
     setBusy(true);
     starting.current = true;
-    sessionId.current = null;
+    sessionIdRef.current = null;
+    setSessionId(null);
     earlyEvents.current = [];
     stopRequested.current = false;
     setMessage("");
@@ -89,7 +97,8 @@ export function BagPanel({ topics, available }: BagPanelProps) {
     setState("starting");
     try {
       const session = await startBag(chosen, output.trim());
-      sessionId.current = session.session_id;
+      sessionIdRef.current = session.session_id;
+      setSessionId(session.session_id);
       setState(session.state);
       for (const event of earlyEvents.current) {
         if (event.session_id === session.session_id) applyEvent(event);
@@ -105,7 +114,7 @@ export function BagPanel({ topics, available }: BagPanelProps) {
   }
 
   async function stop() {
-    if (sessionId.current === null || busy || (state !== "starting" && state !== "running")) return;
+    if (sessionIdRef.current === null || busy || (state !== "starting" && state !== "running")) return;
     setBusy(true);
     stopRequested.current = true;
     setState("stopping");
@@ -122,32 +131,99 @@ export function BagPanel({ topics, available }: BagPanelProps) {
     }
   }
 
-  return <section className="workflow-card bag-panel" aria-label="Bag recorder">
-    <h3>Bag recorder</h3>
+  const startDisabledReason = !nativeAvailable
+    ? "Requires the desktop app"
+    : active
+      ? "Recording in progress"
+      : busy
+        ? "Working"
+        : chosen.length === 0
+          ? "Select at least one topic"
+          : !output.trim()
+            ? "Set an output directory"
+            : undefined;
+  const stopDisabledReason = sessionId === null ? "No recording session" : state !== "starting" && state !== "running" ? "Recording is not running" : undefined;
+  const startHint = chosen.length === 0 ? "Select at least one topic to record." : !output.trim() ? "Set an output directory to enable Start." : "";
+
+  return <section className="workflow-card bag-panel" aria-labelledby="bag-title">
+    <h3 id="bag-title">Recorder</h3>
     <p>Select graph topics and a new output directory. The parent must already exist; existing recordings are never overwritten.</p>
     <fieldset disabled={!nativeAvailable || active || busy || topicNames.length === 0}>
       <legend>Topics to record</legend>
-      {topicNames.length === 0 && <p>No topics available. Refresh the graph in Overview.</p>}
-      {topicNames.map((name) => <label key={name} style={{ display: "block" }}>
-        <input type="checkbox" checked={chosen.includes(name)} onChange={() => toggleTopic(name)} /> {name}
-      </label>)}
+      {topicNames.length === 0 ? (
+        <EmptyState
+          compact
+          icon={<EmptyIcon name="record" />}
+          title="No topics available"
+          hint="Refresh the graph in Overview."
+        />
+      ) : (
+        <>
+          {showTopicFilter && (
+            <input
+              className="list-filter"
+              type="text"
+              value={topicFilter}
+              onChange={(event) => setTopicFilter(event.target.value)}
+              placeholder={`Filter ${topicNames.length} topics…`}
+              aria-label="Filter topics"
+            />
+          )}
+          <div className={`bag-topics-scroll${showTopicFilter ? " list-scroll-tall" : ""}`}>
+            {showTopicFilter && (
+              <div className="list-heading" aria-hidden="true">
+                <span>Topic</span>
+                <span>{chosen.length} selected</span>
+              </div>
+            )}
+            {visibleTopics.map((name) => <label key={name} style={{ display: "block" }}>
+              <input type="checkbox" checked={chosen.includes(name)} onChange={() => toggleTopic(name)} /> {name}
+            </label>)}
+            {visibleTopics.length === 0 && (
+              <EmptyState
+                compact
+                icon={<EmptyIcon name="list" />}
+                title="No topics match the filter"
+                hint={`No results for “${topicFilter.trim()}”.`}
+              />
+            )}
+          </div>
+        </>
+      )}
     </fieldset>
     <label htmlFor="bag-output">Output directory</label>
     <input id="bag-output" type="text" value={output} onChange={(event) => setOutput(event.target.value)}
       placeholder="bags/session-001 or an absolute path" disabled={!nativeAvailable || active || busy}
       aria-describedby="bag-output-help" />
     <p id="bag-output-help">Relative paths resolve from the Pixi workspace. Choose a new directory under an existing parent.</p>
-    <div>
-      <button type="button" onClick={() => void start()}
-        disabled={!nativeAvailable || !ready || active || busy || chosen.length === 0 || !output.trim()}>Start recording</button>
-      <button type="button" onClick={() => void stop()}
-        disabled={sessionId.current === null || busy || (state !== "starting" && state !== "running")}>Stop</button>
+    <div className="panel-actions">
+      <button type="button" className="btn-primary" onClick={() => void start()}
+        disabled={!nativeAvailable || !ready || active || busy || chosen.length === 0 || !output.trim()}
+        title={startDisabledReason}>Start recording</button>
+      <button type="button" className="btn-danger" onClick={() => void stop()}
+        disabled={sessionId === null || busy || (state !== "starting" && state !== "running")}
+        title={stopDisabledReason}>Stop</button>
     </div>
-    {!nativeAvailable && <p>Native ROS environment unavailable. Bag recording requires the desktop backend.</p>}
-    <p role="status">Status: {state}{message && ` — ${message}`}</p>
-    <pre aria-label="Bag recording output" style={{ maxHeight: 320, overflow: "auto", whiteSpace: "pre-wrap", overflowWrap: "anywhere" }}>
+    {nativeAvailable && !active && startHint && <p className="action-hint" role="status">{startHint}</p>}
+    {!nativeAvailable && <p className="action-hint" role="status">Native ROS environment unavailable. Bag recording requires the desktop backend.</p>}
+    <div className="status-row" role="status">
+      <StatusPill status={state} />
+      {message && <span className={`status-message${state === "failed" ? " status-message-error" : ""}`}>{message}</span>}
+    </div>
+    <LogScroll
+      label="Bag recording output"
+      lineCount={lines.length}
+      empty={
+        <EmptyState
+          compact
+          icon={<EmptyIcon name="terminal" />}
+          title="No recording output"
+          hint="ros2 bag output appears during recording."
+        />
+      }
+    >
       {lines.map((line) => <span key={line.id} data-stream={line.stream}>{line.stream === "stdout" ? "" : `[${line.stream}] `}{line.text}{"\n"}</span>)}
-    </pre>
+    </LogScroll>
   </section>;
 }
 

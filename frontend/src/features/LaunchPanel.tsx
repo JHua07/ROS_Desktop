@@ -10,6 +10,7 @@ import {
   type ProcessEvent,
   type ProcessState,
 } from "../modules/process";
+import { EmptyIcon, EmptyState, LogScroll, Spinner, StatusPill } from "./panel-ui";
 
 type OutputLine = { id: number; text: string };
 
@@ -126,28 +127,90 @@ export function LaunchPanel({ available }: { available: boolean }) {
   }
 
   const active = state === "starting" || state === "running" || state === "stopping";
+  const startDisabledReason = !nativeAvailable
+    ? "Requires the desktop app"
+    : !ready
+      ? "Connecting to the backend"
+      : loading
+        ? "Scanning workspace"
+        : active
+          ? "Launch in progress"
+          : busy
+            ? "Working"
+            : !target
+              ? "No launch file selected — refresh files"
+              : undefined;
+  const stopDisabledReason = !nativeAvailable ? "Requires the desktop app" : state !== "starting" && state !== "running" ? "Launch is not running" : undefined;
   return (
     <section className="status-card" aria-labelledby="launch-title">
-      <h3 id="launch-title">Launch</h3>
-      <p>Select a workspace launch file and optionally provide one <code>name:=value</code> argument per line.</p>
-      {!nativeAvailable && <p role="status">Launch requires the native ROS environment; browser preview is read-only.</p>}
-      <label htmlFor="launch-target">Launch target</label>{" "}
+      <header className="panel-header">
+        <div>
+          <h3 id="launch-title">Launch runner</h3>
+          <p>Select a workspace launch file and optionally provide one <code>name:=value</code> argument per line.</p>
+        </div>
+        <button
+          type="button"
+          className="btn-secondary"
+          onClick={() => void refresh()}
+          disabled={!nativeAvailable || loading}
+          title={!nativeAvailable ? "Requires the desktop app" : loading ? "Scanning workspace" : undefined}
+        >
+          {loading && <Spinner />}
+          {loading ? "Scanning…" : "Refresh files"}
+        </button>
+      </header>
+      {!nativeAvailable && <p className="action-hint" role="status">Launch requires the native ROS environment; browser preview is read-only.</p>}
+      <label htmlFor="launch-target">Launch target</label>
       <select id="launch-target" value={target} onChange={(event) => setTarget(event.target.value)} disabled={!nativeAvailable || loading || active || busy}>
         {targets.length === 0 && <option value="">No launch files available</option>}
         {targets.map((item) => <option key={item} value={item}>{item}</option>)}
-      </select>{" "}
-      <button type="button" onClick={() => void refresh()} disabled={!nativeAvailable || loading}>Refresh files</button>
+      </select>
       <div>
-        <label htmlFor="launch-arguments">Arguments</label><br />
+        <label htmlFor="launch-arguments">Arguments</label>
         <textarea id="launch-arguments" value={argumentText} onChange={(event) => setArgumentText(event.target.value)} rows={4} placeholder={"robot_name:=my_robot\nuse_sim_time:=true"} disabled={!nativeAvailable || active || busy} />
       </div>
-      <button type="button" onClick={() => void start()} disabled={!nativeAvailable || !ready || !target || loading || busy || active}>Start launch</button>{" "}
-      <button type="button" onClick={() => void stop()} disabled={!nativeAvailable || busy || (state !== "starting" && state !== "running")}>Stop launch</button>
-      <p role="status">Status: {state}{loading ? " · scanning workspace" : ""}</p>
-      {error && <p role="alert">{error}</p>}
-      <div role="log" aria-label="Launch output" style={{ maxHeight: 320, overflow: "auto", whiteSpace: "pre-wrap", overflowWrap: "anywhere", fontFamily: "monospace" }}>
-        {lines.map((line) => <div key={line.id}>{line.text}</div>)}
+      <div className="panel-actions">
+        <button
+          type="button"
+          className="btn-primary"
+          onClick={() => void start()}
+          disabled={!nativeAvailable || !ready || !target || loading || busy || active}
+          title={startDisabledReason}
+        >
+          Start launch
+        </button>
+        <button
+          type="button"
+          className="btn-danger"
+          onClick={() => void stop()}
+          disabled={!nativeAvailable || busy || (state !== "starting" && state !== "running")}
+          title={stopDisabledReason}
+        >
+          Stop launch
+        </button>
       </div>
+      {nativeAvailable && !loading && !error && targets.length === 0 && (
+        <p className="action-hint" role="status">No launch files found in the workspace. Add a launch file and refresh.</p>
+      )}
+      <div className="status-row" role="status">
+        <StatusPill status={state} />
+        {loading && <span className="status-message">Scanning workspace…</span>}
+      </div>
+      {error && <p role="alert">{error}</p>}
+      <LogScroll
+        label="Launch output"
+        lineCount={lines.length}
+        empty={
+          <EmptyState
+            compact
+            icon={<EmptyIcon name="terminal" />}
+            title="No launch output"
+            hint="Output appears when a launch file runs."
+          />
+        }
+      >
+        {lines.map((line) => <div key={line.id}>{line.text}</div>)}
+      </LogScroll>
     </section>
   );
 }

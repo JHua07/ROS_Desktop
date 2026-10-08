@@ -1,63 +1,67 @@
+/* Viz panel — aligned to the design-system tokens (phase 2). */
+
 .viz-panel .viz-topic-groups {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 12px;
-  margin: 16px 0;
+  gap: var(--space-3);
+  margin: var(--space-4) 0;
 }
 
 .viz-panel fieldset {
-  border: 1px solid #2c364d;
-  border-radius: 12px;
-  background: #1a2234;
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-md);
+  background: var(--surface-inset);
   margin: 0;
-  padding: 10px 12px;
+  padding: var(--space-2) var(--space-3);
 }
 
-.viz-panel fieldset legend {
-  color: #9aa8c1;
-  font-size: 12px;
-  padding: 0 6px;
-}
+/* Legend inherits the global fieldset style: 11px uppercase label. */
 
 .viz-panel fieldset label {
   display: block;
-  margin: 6px 0;
-  color: #c2cde0;
+  margin: var(--space-1) 0;
+  color: var(--text-2);
   overflow-wrap: anywhere;
-}
-
-.viz-group-empty {
-  color: #99a9bf;
-  margin: 6px 0;
-  font-size: 12px;
 }
 
 .viz-image-options {
   display: flex;
-  gap: 14px;
+  gap: var(--space-4);
   align-items: center;
   flex-wrap: wrap;
-  margin: 12px 0;
+  margin: var(--space-3) 0;
 }
 
-.viz-image-options label {
+/* Each label + input pair is an atomic unit; wrapping never splits them. */
+.viz-image-option {
+  display: flex;
+  gap: var(--space-2);
+  align-items: center;
+}
+
+.viz-image-option label {
   margin: 0;
 }
 
-.viz-image-options input {
+.viz-image-option input {
   width: 110px;
 }
 
 .viz-views {
-  margin-top: 18px;
+  margin-top: var(--space-5);
   display: grid;
-  gap: 18px;
+  gap: var(--space-5);
+}
+
+.viz-views-empty {
+  margin-top: var(--space-4);
 }
 
 .viz-section-title {
-  color: #99a9bf;
-  margin: 0 0 8px;
-  font-size: 12px;
+  color: var(--text-3);
+  margin: 0 0 var(--space-2);
+  font-size: var(--fs-caption);
+  font-weight: 650;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
@@ -65,9 +69,9 @@
 .viz-viewport {
   position: relative;
   height: 440px;
-  border: 1px solid #2c364d;
-  border-radius: 12px;
-  background: #0c111d;
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-md);
+  background: var(--bg-0);
   overflow: hidden;
 }
 
@@ -80,52 +84,54 @@
 .viz-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 16px;
+  gap: var(--space-4);
 }
 
 .viz-card {
   margin: 0;
-  border: 1px solid #2c364d;
-  border-radius: 12px;
-  background: #1a2234;
+  border: 1px solid var(--border-1);
+  border-radius: var(--radius-md);
+  background: var(--bg-2);
   overflow: hidden;
 }
 
 .viz-card figcaption {
-  padding: 8px 12px;
-  color: #c2cde0;
-  font-size: 12px;
+  padding: var(--space-2) var(--space-3);
+  color: var(--text-2);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
   overflow-wrap: anywhere;
-  border-bottom: 1px solid #2c364d;
+  border-bottom: 1px solid var(--border-1);
 }
 
 .viz-canvas-wrap {
   position: relative;
   height: 240px;
-  background: #0c111d;
+  background: var(--bg-0);
 }
 
 .viz-imu-plot {
-  padding: 8px 6px 0 2px;
-  background: #0c111d;
+  padding: var(--space-2) var(--space-2) 0 2px;
+  background: var(--bg-0);
 }
 
 .viz-note {
-  padding: 6px 12px;
+  padding: var(--space-1) var(--space-3);
   margin: 0;
-  color: #99a9bf;
-  font-size: 11px;
+  color: var(--text-3);
+  font-size: var(--fs-caption);
 }
 
 .viz-status-log {
   max-height: 120px;
-  margin: 12px 0 0;
+  margin: var(--space-3) 0 0;
 }
 
 .viz-stats {
-  color: #99a9bf;
-  font-size: 12px;
-  margin: 10px 0 0;
+  color: var(--text-3);
+  font-family: var(--font-mono);
+  font-size: var(--fs-small);
+  margin: var(--space-2) 0 0;
   overflow-wrap: anywhere;
 }
 
